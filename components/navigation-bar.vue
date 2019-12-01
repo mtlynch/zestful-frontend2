@@ -81,6 +81,10 @@ export default {
   color: #ffd740;
 }
 
+.custom-navbar .nav-item .nuxt-link-exact-active {
+  color: rgb(238, 255, 0);
+}
+
 .logo {
   max-height: 47px;
 }

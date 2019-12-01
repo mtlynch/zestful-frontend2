@@ -9,16 +9,16 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item to="/">
+          <b-nav-item class="standard-link" to="/">
             About
           </b-nav-item>
-          <b-nav-item to="/demo">
+          <b-nav-item class="standard-link" to="/demo">
             Demo
           </b-nav-item>
-          <b-nav-item to="/pricing">
+          <b-nav-item class="standard-link" to="/pricing">
             Pricing
           </b-nav-item>
-          <b-nav-item to="/docs">
+          <b-nav-item class="standard-link" to="/docs">
             Docs
           </b-nav-item>
           <b-nav-item
@@ -36,6 +36,14 @@
 <script>
 export default {
   name: 'NavigationBar',
+  head: {
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap',
+      },
+    ],
+  },
 };
 </script>
 
@@ -46,11 +54,30 @@ export default {
   margin-bottom: 30px;
 }
 
-.custom-navbar .nav-link {
+.custom-navbar .nav-item a {
+  font-family: Roboto;
+  font-size: 11pt;
+  padding: 6px 20px;
+}
+
+.custom-navbar .standard-link a {
   color: white;
 }
 
+.custom-navbar .standard-link a:hover {
+  background: #0000002a;
+  color: rgb(196, 196, 196);
+}
+
+.custom-navbar .accent-link:hover {
+  background: #ffd6401f;
+}
+
 .custom-navbar .accent-link a {
+  color: #ffd740;
+}
+
+.custom-navbar .accent-link a:hover {
   color: #ffd740;
 }
 

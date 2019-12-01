@@ -9,5 +9,10 @@ export default {
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
     ],
   },
-  modules: ['bootstrap-vue/nuxt'],
+  modules: ['@nuxtjs/sitemap', 'bootstrap-vue/nuxt'],
+  sitemap: {
+    hostname: 'https://zestfuldata.com/',
+    gzip: true,
+    exclude: ['/404'],
+  },
 };

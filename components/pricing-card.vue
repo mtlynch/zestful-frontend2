@@ -1,5 +1,5 @@
 <template>
-  <b-card :class="'mb-4 pricing-card' + ' pricing-card-' + variant">
+  <b-card no-body :class="'mb-4 pricing-card' + ' pricing-card-' + variant">
     <b-card-header>
       <h4 class="my-0 font-weight-normal">{{ title }}</h4>
     </b-card-header>
@@ -14,7 +14,7 @@
       </b-card-text>
       <b-button
         :to="buttonTo"
-        class="mt-auto btn-lg btn-block"
+        class="btn-lg btn-block align-self-end"
         :href="buttonHref"
         :variant="variant"
         >{{ buttonText }}</b-button
@@ -66,5 +66,9 @@ export default {
 
 .pricing-card-primary .card-header {
   background: rgb(104, 247, 152);
+}
+
+.btn {
+  margin-top: auto;
 }
 </style>

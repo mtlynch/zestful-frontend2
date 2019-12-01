@@ -1,7 +1,82 @@
 <template>
-  <div>
-    <h1>Welcome</h1>
-    <p>Hello and welcome to the Vue Static Site example</p>
+  <div class="home">
+    <h1>Parse recipe ingredients easily</h1>
+    <p>
+      Zestful's ingredient parser API turns plain recipe strings into beautiful,
+      structured JSON data.
+    </p>
+
+    <h2>Helping recipe app developers</h2>
+
+    <p>
+      Zestful allows developers to better understand the recipes their apps
+      manage.
+    </p>
+
+    <p>
+      Zestful makes recipe apps smarter about managing ingredients. Zestful
+      transforms ingredients from opaque strings to meaningful data in
+      easy-to-consume JSON format.
+    </p>
+
+    <h2>Keep the data you purchase</h2>
+
+    <p>
+      Zestful licenses its data with
+      <nuxt-link to="/terms-of-service">developer-friendly terms</nuxt-link>:
+    </p>
+
+    <ul>
+      <li>Unlimited data retention</li>
+      <li>No restrictions on resale</li>
+      <li>Zero attribution requirement</li>
+    </ul>
+
+    <p>
+      Solutions like Spoonacular and Edamam prohibit developers from storing the
+      ingredients they parse:
+    </p>
+
+    <div class="quote">
+      <blockquote>
+        You may not scrape the spoonacular API or in any way attempt to copy or
+        store the information it provides, including any derived, hashed, or
+        transformed data... If you stop using the spoonacular API or if your
+        access to the API is suspended for any reason, then you must delete all
+        data you ever obtained from the spoonacular API.
+      </blockquote>
+      <p class="quote-source">
+        -Spoonacular's
+        <a href="https://spoonacular.com/food-api/terms" rel="nofollow"
+          >Terms of Service</a
+        >
+      </p>
+    </div>
+
+    <div class="quote">
+      <blockquote>
+        You are prohibited from copying or archiving any of Edamam Content
+        and/or collecting any data from Edamam Content, without Edamam’s prior
+        written consent... In the event this agreement between you and Edamam
+        under these Terms is terminated for any reason... you shall forthwith
+        and permanently delete all Edamam Content which you used and/or
+        stored/archived in connection with your use of the Edamam API.
+      </blockquote>
+      <p class="quote-source">
+        -Edamam's
+        <a href="https://developer.edamam.com/about/terms" rel="nofollow"
+          >Terms of Service</a
+        >
+      </p>
+    </div>
+
+    <h2>Contact</h2>
+
+    <p>
+      Questions? Please reach out to
+      <a href="mailto:michael@zestfuldata.com">michael@zestfuldata.com</a>, and
+      I'll be happy to assist you.
+    </p>
   </div>
 </template>
 

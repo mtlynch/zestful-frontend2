@@ -21,6 +21,21 @@
       <b-button type="submit" variant="primary">Parse</b-button>
       <b-button type="reset" variant="outline-primary">Reset</b-button>
     </b-form>
+
+    <div class="example-inputs container">
+      <b-button
+        class="example-input"
+        variant="primary"
+        v-for="input in exampleInputs"
+        v-bind:key="input"
+        @click="form.ingredient = input"
+        >{{ input }}</b-button
+      >
+    </div>
+
+    <p v-if="result && result.ingredientParsed.product">
+      {{ result.ingredientParsed.product }}
+    </p>
   </div>
 </template>
 
@@ -34,6 +49,12 @@ export default {
       form: {
         ingredient: '',
       },
+      result: null,
+      exampleInputs: [
+        '2 1/2 tablespoons finely chopped parsley',
+        '½ tsp brown sugar',
+        '3 large Granny Smith apples',
+      ],
     };
   },
   methods: {
@@ -44,11 +65,8 @@ export default {
         .$post(url, {
           ingredients: [this.form.ingredient],
         })
-        .then(result => {
-          console.log('got results!');
-          for (result of result.data.results) {
-            console.log(result.ingredientRaw);
-          }
+        .then(response => {
+          this.result = response.results[0];
         });
     },
     onReset(evt) {
@@ -58,3 +76,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.example-inputs {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0px;
+}
+
+.example-input {
+  font-family: Consolas, 'Courier New', Courier, monospace;
+  padding: 10px 15px;
+  color: black;
+  background: #8e79c4;
+  border: 0px;
+}
+</style>

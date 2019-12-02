@@ -51,26 +51,27 @@
       </blockquote>
       <p class="quote-source">
         -Spoonacular's
-        <a
-          href="https://spoonacular.com/food-api/terms"
-          rel="nofollow"
-        >Terms of Service</a>
+        <a href="https://spoonacular.com/food-api/terms" rel="nofollow"
+          >Terms of Service</a
+        >
       </p>
     </div>
 
     <div class="quote">
       <blockquote>
         You are prohibited from
-        <strong>copying or archiving</strong> any of Edamam Content
-        and/or collecting any data from Edamam Content, without Edamam’s prior
-        written consent... In the event this agreement between you and Edamam
-        under these Terms is terminated for any reason... you shall forthwith
-        and permanently delete all Edamam Content which you used and/or
+        <strong>copying or archiving</strong> any of Edamam Content and/or
+        collecting any data from Edamam Content, without Edamam’s prior written
+        consent... In the event this agreement between you and Edamam under
+        these Terms is terminated for any reason... you shall forthwith and
+        permanently delete all Edamam Content which you used and/or
         stored/archived in connection with your use of the Edamam API.
       </blockquote>
       <p class="quote-source">
         -Edamam's
-        <a href="https://developer.edamam.com/about/terms" rel="nofollow">Terms of Service</a>
+        <a href="https://developer.edamam.com/about/terms" rel="nofollow"
+          >Terms of Service</a
+        >
       </p>
     </div>
 

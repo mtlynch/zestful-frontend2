@@ -43,10 +43,18 @@ export default {
       },
     ],
   ],
-  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap', 'bootstrap-vue/nuxt'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+    'bootstrap-vue/nuxt',
+  ],
   sitemap: {
     hostname: 'https://zestfuldata.com/',
     gzip: true,
     exclude: ['/404'],
+  },
+  robots: {
+    sitemap: 'https://zestfuldata.com/sitemap.xml',
   },
 };

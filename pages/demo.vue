@@ -42,10 +42,10 @@
     </div>
 
     <b-card-group class="parsed-cards" deck v-if="ingredientParsed">
-      <b-card v-if="ingredientParsed.quantity">
-        <b-card-title>{{
-          ingredientParsed.quantity | number('1.0-2')
-        }}</b-card-title>
+      <b-card v-if="ingredientParsed.quantity !== null" class="shadow">
+        <b-card-title>
+          {{ ingredientParsed.quantity | number('0.0') | simplifyDecimal }}
+        </b-card-title>
         <b-card-sub-title>
           quantity
         </b-card-sub-title>
@@ -86,6 +86,7 @@
       v-if="ingredientParsed && ingredientParsed.usdaInfo"
     >
       <b-card
+        class="shadow-sm"
         :title="ingredientParsed.usdaInfo.description"
         sub-title="USDA match"
       >
@@ -99,6 +100,17 @@
         </b-button>
       </b-card>
     </b-card-group>
+
+    <b-card-group class="confidence-cards" deck v-if="confidence !== null">
+      <b-card class="shadow-sm">
+        <b-card-title>
+          {{ (confidence * 100.0) | number('0.00') }}%
+        </b-card-title>
+        <b-card-sub-title>
+          confidence
+        </b-card-sub-title>
+      </b-card>
+    </b-card-group>
   </div>
 </template>
 
@@ -108,6 +120,10 @@ import Vue2Filters from 'vue2-filters';
 
 Vue.use(Vue2Filters);
 
+Vue.filter('simplifyDecimal', function(value) {
+  return value.replace('.0', '');
+});
+
 export default {
   data() {
     return {
@@ -115,6 +131,7 @@ export default {
         ingredient: '',
       },
       ingredientParsed: null,
+      confidence: null,
       exampleInputs: [
         '2 1/2 tablespoons finely chopped parsley',
         '½ tsp brown sugar',
@@ -131,6 +148,7 @@ export default {
         })
         .then(response => {
           this.ingredientParsed = response.results[0].ingredientParsed;
+          this.confidence = response.results[0].confidence;
         });
     },
     onSubmit(evt) {
@@ -141,6 +159,7 @@ export default {
       evt.preventDefault();
       this.form.ingredient = '';
       this.ingredientParsed = null;
+      this.confidence = null;
     },
   },
   head: {
@@ -174,7 +193,7 @@ export default {
   border: 0px;
 }
 
-.usda-match-cards {
+.card-deck {
   margin-top: 50px;
 }
 </style>

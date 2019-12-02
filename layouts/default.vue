@@ -12,13 +12,17 @@ export default {
   components: {
     NavigationBar,
   },
-  link: [
-    {
-      rel: 'stylesheet',
-      href:
-        'https://fonts.googleapis.com/css?family=Calistoga|Rubik|Roboto&display=swap',
-    },
-  ],
+  head() {
+    return {
+      link: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://fonts.googleapis.com/css?family=Calistoga|Rubik|Roboto&display=swap',
+        },
+      ],
+    };
+  },
 };
 </script>
 

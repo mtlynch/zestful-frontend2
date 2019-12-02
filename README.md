@@ -10,4 +10,4 @@ This is an implementation of the Zestful Frontend in Vue + Nuxt. It generates th
 
 The live version of this project is at:
 
-- [https://zestful-frontend2.web.app](https://zestful-frontend2.web.app)
+- [https://zestfuldata.com](https://zestfuldata.com)

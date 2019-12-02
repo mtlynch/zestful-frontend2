@@ -60,7 +60,7 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      const url = `https://zestful:8888/parseIngredients`;
+      const url = `http://zestful:8888/parseIngredients`;
       this.$axios
         .$post(url, {
           ingredients: [this.form.ingredient],

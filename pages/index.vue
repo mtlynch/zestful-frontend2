@@ -180,15 +180,28 @@ li {
 }
 
 .quote {
-  width: 70%;
-  margin: 60px 0px 60px 40px;
+  margin: 60px auto;
+}
+
+@media screen and (min-width: 768px) {
+  .quote {
+    width: 70%;
+    margin: 60px 0px 60px 40px;
+  }
 }
 
 blockquote {
   font-style: italic;
-  margin-bottom: 15px;
   background: rgb(240, 240, 240);
   padding: 20px;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  blockquote {
+    margin-right: 0px;
+    margin-bottom: 15px;
+  }
 }
 
 .quote-source {

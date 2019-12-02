@@ -6,16 +6,16 @@
         title="Trial"
         price="$0"
         :features="['30 ingredient parses per day', 'E-mail support']"
-        buttonTo="/demo"
-        buttonText="Try for Free"
+        button-to="/demo"
+        button-text="Try for Free"
         variant="outline-primary"
       />
       <PricingCard
         title="Professional"
         price="$0.02 / ingredient"
         :features="['Managed hosting', 'Priority e-mail and phone support']"
-        buttonHref="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"
-        buttonText="Sign Up Now"
+        button-href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"
+        button-text="Sign Up Now"
         variant="primary"
       />
       <PricingCard
@@ -26,8 +26,8 @@
           'Unlimited ingredient parses',
           'Priority e-mail and phone support',
         ]"
-        buttonHref="mailto:michael@zestfuldata.com"
-        buttonText="Contact Us"
+        button-href="mailto:michael@zestfuldata.com"
+        button-text="Contact Us"
         variant="outline-primary"
       />
     </b-card-group>
@@ -38,11 +38,11 @@
 import PricingCard from '../components/pricing-card';
 
 export default {
-  head: {
-    title: 'Pricing',
-  },
   components: {
     PricingCard,
+  },
+  head: {
+    title: 'Pricing',
   },
 };
 </script>

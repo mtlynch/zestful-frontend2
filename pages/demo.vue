@@ -43,6 +43,10 @@
       <span class="sr-only">Loading...</span>
     </div>
 
+    <div v-if="backendError" class="alert alert-warning" role="alert">
+      Failed to communicate with Zestful server: {{ backendError }}
+    </div>
+
     <template v-if="!ingredientParsed && !isWaitingForParseResult">
       <p>Or choose an example below:</p>
       <div class="example-inputs">
@@ -200,6 +204,7 @@ curl \\
       ingredientRawReflected: null,
       requestsRemaining: null,
       isWaitingForParseResult: false,
+      backendError: null,
       exampleInputs: [
         '2 1/2 tablespoons finely chopped parsley',
         '½ tsp brown sugar',
@@ -216,13 +221,19 @@ curl \\
           ingredients: [ingredient],
         })
         .then(response => {
-          this.isWaitingForParseResult = false;
           this.ingredientParsed = response.results[0].ingredientParsed;
           this.confidence = response.results[0].confidence;
           this.ingredientRawReflected = response.results[0].ingredientRaw;
           if (typeof response.requestsRemaining !== 'undefined') {
             this.requestsRemaining = response.requestsRemaining;
           }
+          this.backendError = null;
+        })
+        .catch(error => {
+          this.backendError = error;
+        })
+        .finally(() => {
+          this.isWaitingForParseResult = false;
         });
     },
     onSubmit(evt) {
@@ -237,6 +248,7 @@ curl \\
       this.ingredientRawReflected = null;
       this.requestsRemaining = null;
       this.isWaitingForParseResult = false;
+      this.backendError = null;
     },
   },
   head: {

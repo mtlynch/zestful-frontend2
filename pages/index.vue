@@ -87,3 +87,25 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.quote {
+  width: 70%;
+  margin: 60px 0px 60px 40px;
+}
+
+blockquote {
+  font-style: italic;
+  margin-bottom: 15px;
+  background: rgb(240, 240, 240);
+  padding: 20px;
+}
+
+.quote-source {
+  text-align: right;
+}
+
+.quote-source a {
+  font-weight: 400;
+}
+</style>

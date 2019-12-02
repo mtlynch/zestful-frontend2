@@ -28,56 +28,58 @@
 
     <div v-if="!ingredientParsed" class="example-inputs">
       <b-button
-        class="example-input"
         v-for="input in exampleInputs"
-        v-bind:key="input"
+        :key="input"
+        class="example-input"
+        variant="primary"
         @click="
           form.ingredient = input;
           parseIngredient(input);
         "
-        variant="primary"
-        >{{ input }}</b-button
       >
+        {{ input }}
+      </b-button>
     </div>
 
-    <b-card-group class="parsed-cards" deck v-if="ingredientParsed">
+    <b-card-group v-if="ingredientParsed" class="parsed-cards" deck>
       <b-card
         v-if="ingredientParsed.quantity"
+        class="shadow"
         footer="quantity"
         footer-tag="footer"
       >
-        <b-card-title>{{
-          ingredientParsed.quantity | number('1.0-2')
-        }}</b-card-title>
+        <b-card-title>
+          {{ ingredientParsed.quantity | number('1.0-2') }}
+        </b-card-title>
       </b-card>
       <b-card
         v-if="ingredientParsed.unit"
+        class="shadow"
         :title="ingredientParsed.unit"
         footer="units"
         footer-tag="footer"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.productSizeModifier"
+        class="shadow"
         :title="ingredientParsed.productSizeModifier"
         footer="product size modifier"
         footer-tag="footer"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.product"
+        class="shadow"
         :title="ingredientParsed.product"
         footer="product"
         footer-tag="footer"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.preparationNotes"
+        class="shadow"
         :title="ingredientParsed.preparationNotes"
         footer="preparation instructions"
         footer-tag="footer"
-      >
-      </b-card>
+      />
     </b-card-group>
   </div>
 </template>
@@ -89,9 +91,6 @@ import Vue2Filters from 'vue2-filters';
 Vue.use(Vue2Filters);
 
 export default {
-  head: {
-    title: 'Demo',
-  },
   data() {
     return {
       form: {
@@ -125,6 +124,9 @@ export default {
       this.form.ingredient = '';
       this.ingredientParsed = null;
     },
+  },
+  head: {
+    title: 'Demo',
   },
 };
 </script>

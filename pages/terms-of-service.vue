@@ -166,3 +166,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+p {
+  max-width: 600px;
+}
+</style>

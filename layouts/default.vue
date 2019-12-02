@@ -43,4 +43,9 @@ h2 {
   margin-top: 70px;
   margin-bottom: 30px;
 }
+
+h3 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
 </style>

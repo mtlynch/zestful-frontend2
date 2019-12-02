@@ -16,7 +16,7 @@ export default {
     {
       rel: 'stylesheet',
       href:
-        'https://fonts.googleapis.com/css?family=Calistoga|Rubik&display=swap',
+        'https://fonts.googleapis.com/css?family=Calistoga|Rubik|Roboto&display=swap',
     },
   ],
 };

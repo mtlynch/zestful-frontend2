@@ -186,7 +186,7 @@ curl \\
       "${ingredientEscaped}"
     ]
   }' \\
-  "${this.backendUrl}/parseIngredients"
+  "${process.env.backendUrl}/parseIngredients"
 `.trim();
     },
   },
@@ -205,14 +205,12 @@ curl \\
         '½ tsp brown sugar',
         '3 large Granny Smith apples',
       ],
-      // TODO: Replace with environmnet variable.
-      backendUrl: 'https://sandbox.zestfuldata.com',
     };
   },
   methods: {
     parseIngredient(ingredient) {
       this.isWaitingForParseResult = true;
-      const url = `${this.backendUrl}/parseIngredients`;
+      const url = `${process.env.backendUrl}/parseIngredients`;
       this.$axios
         .$post(url, {
           ingredients: [ingredient],

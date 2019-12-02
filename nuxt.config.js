@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 export default {
   env: {
     backendUrl: process.env.BACKEND_URL || 'https://sandbox.zestfuldata.com',
@@ -63,6 +65,7 @@ export default {
   },
   buildModules: [
     [
+      '@nuxtjs/dotenv',
       '@nuxtjs/google-analytics',
       {
         id: 'UA-122091312-1',

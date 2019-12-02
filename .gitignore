@@ -4,9 +4,11 @@ node_modules
 .nuxt
 .firebase
 
-# local env files
-.env.local
-.env.*.local
+# env files
+# nuxt/dotenv only seems to allow a single .env file unless we want to add a
+# bit of complexity:
+#   https://itnext.io/using-multiple-env-files-in-nuxt-15703d7535f3
+.env
 
 # Log files
 npm-debug.log*

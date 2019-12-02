@@ -107,6 +107,12 @@
         </b-card-sub-title>
       </b-card>
     </b-card-group>
+
+    <div v-if="curlCmd" class="curl-example">
+      <h2>Calling Zestful via <span class="code">curl</span></h2>
+
+      <pre class="curl-snippet shadow">{{ curlCmd }}</pre>
+    </div>
   </div>
 </template>
 
@@ -121,6 +127,27 @@ Vue.filter('simplifyDecimal', function(value) {
 });
 
 export default {
+  computed: {
+    curlCmd: function() {
+      if (!this.ingredientRawReflected) {
+        return null;
+      }
+      const ingredientEscaped = this.ingredientRawReflected.replace(
+        /'/g,
+        "\\'"
+      );
+      return `
+curl \\
+  --header "Content-Type: application/json" \\
+  --data '{
+    "ingredients": [
+      "${ingredientEscaped}"
+    ]
+  }' \\
+  "${this.backendUrl}/parseIngredients"
+`.trim();
+    },
+  },
   data() {
     return {
       form: {
@@ -128,16 +155,19 @@ export default {
       },
       ingredientParsed: null,
       confidence: null,
+      ingredientRawReflected: null,
       exampleInputs: [
         '2 1/2 tablespoons finely chopped parsley',
         '½ tsp brown sugar',
         '3 large Granny Smith apples',
       ],
+      // TODO: Replace with environmnet variable.
+      backendUrl: 'http://zestful:8888',
     };
   },
   methods: {
     parseIngredient(ingredient) {
-      const url = `http://zestful:8888/parseIngredients`;
+      const url = `${this.backendUrl}/parseIngredients`;
       this.$axios
         .$post(url, {
           ingredients: [ingredient],
@@ -145,6 +175,7 @@ export default {
         .then(response => {
           this.ingredientParsed = response.results[0].ingredientParsed;
           this.confidence = response.results[0].confidence;
+          this.ingredientRawReflected = response.results[0].ingredientRaw;
         });
     },
     onSubmit(evt) {
@@ -156,6 +187,7 @@ export default {
       this.form.ingredient = '';
       this.ingredientParsed = null;
       this.confidence = null;
+      this.ingredientRawReflected = null;
     },
   },
   head: {
@@ -165,6 +197,10 @@ export default {
 </script>
 
 <style scoped>
+.code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .ingredient-form {
   margin-bottom: 50px;
 }
@@ -191,5 +227,16 @@ export default {
 
 .card-deck {
   margin-top: 50px;
+}
+
+.curl-example {
+  margin-top: 50px;
+}
+
+.curl-example pre {
+  margin-top: 20px;
+  background: rgb(219, 219, 219);
+  border: 1px solid black;
+  padding: 15px;
 }
 </style>

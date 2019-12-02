@@ -1,4 +1,7 @@
 export default {
+  env: {
+    backendUrl: process.env.VUE_APP_BACKEND_URL,
+  },
   head: {
     htmlAttrs: {
       lang: 'en',
@@ -16,7 +19,7 @@ export default {
       },
     ],
   },
-  modules: ['@nuxtjs/sitemap', 'bootstrap-vue/nuxt'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap', 'bootstrap-vue/nuxt'],
   sitemap: {
     hostname: 'https://zestfuldata.com/',
     gzip: true,

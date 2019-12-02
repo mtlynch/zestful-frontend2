@@ -1,6 +1,7 @@
 {
   "name": "zestful-frontend2",
   "dependencies": {
+    "@nuxtjs/axios": "^5.8.0",
     "babel-runtime": "^6.26.0",
     "nuxt": "^2.10.2",
     "prismjs": "^1.17.1",

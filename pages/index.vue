@@ -22,6 +22,32 @@
       easy-to-consume JSON format.
     </p>
 
+    <h2>Use cases</h2>
+
+    <b-card-group class="use-cases" deck>
+      <b-card
+        class="shadow-sm text-center"
+        title="Make your recipes searchable"
+        img-src="/images/search-icon.png"
+        img-alt="Search icon"
+        img-top
+      />
+      <b-card
+        class="shadow-sm text-center"
+        title="Build shopping lists for your customers"
+        img-src="/images/shopping-cart-icon.png"
+        img-alt="Shopping cart icon"
+        img-top
+      />
+      <b-card
+        class="shadow-sm text-center"
+        title="Create an ingredient database"
+        img-src="/images/database-icon.png"
+        img-alt="Database icon"
+        img-top
+      />
+    </b-card-group>
+
     <h2>Keep the data you purchase</h2>
 
     <p>
@@ -102,7 +128,11 @@ h2 {
 }
 
 p {
-  font-size: 1.5em;
+  font-size: 1.3em;
+}
+
+li {
+  font-size: 1.2em;
 }
 
 .flex-container {
@@ -128,6 +158,25 @@ p {
   .img-ingredient-translation {
     max-height: 450px;
   }
+}
+
+.use-cases .card {
+  padding: 20px 0px;
+}
+
+.use-cases >>> .card-img-top {
+  max-width: 150px;
+  margin: auto;
+}
+
+.use-cases >>> .card-body {
+  padding: 20px 20px 0px 20px;
+  margin-top: 30px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.use-cases >>> h4 {
+  font-family: 'Rubik', sans-serif;
 }
 
 .quote {

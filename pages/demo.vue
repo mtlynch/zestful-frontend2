@@ -41,45 +41,63 @@
       </b-button>
     </div>
 
-    <b-card-group v-if="ingredientParsed" class="parsed-cards" deck>
-      <b-card
-        v-if="ingredientParsed.quantity"
-        class="shadow"
-        footer="quantity"
-        footer-tag="footer"
-      >
-        <b-card-title>
-          {{ ingredientParsed.quantity | number('1.0-2') }}
-        </b-card-title>
+    <b-card-group class="parsed-cards" deck v-if="ingredientParsed">
+      <b-card v-if="ingredientParsed.quantity">
+        <b-card-title>{{
+          ingredientParsed.quantity | number('1.0-2')
+        }}</b-card-title>
+        <b-card-sub-title>
+          quantity
+        </b-card-sub-title>
       </b-card>
       <b-card
         v-if="ingredientParsed.unit"
         class="shadow"
         :title="ingredientParsed.unit"
-        footer="units"
-        footer-tag="footer"
-      />
+        sub-title="units"
+      >
+      </b-card>
       <b-card
         v-if="ingredientParsed.productSizeModifier"
         class="shadow"
         :title="ingredientParsed.productSizeModifier"
-        footer="product size modifier"
-        footer-tag="footer"
-      />
+        sub-title="product size modifier"
+      >
+      </b-card>
       <b-card
         v-if="ingredientParsed.product"
         class="shadow"
         :title="ingredientParsed.product"
-        footer="product"
-        footer-tag="footer"
-      />
+        sub-title="product"
+      >
+      </b-card>
       <b-card
         v-if="ingredientParsed.preparationNotes"
         class="shadow"
         :title="ingredientParsed.preparationNotes"
-        footer="preparation instructions"
-        footer-tag="footer"
-      />
+        sub-title="preparation instructions"
+      >
+      </b-card>
+    </b-card-group>
+
+    <b-card-group
+      class="usda-match-cards"
+      deck
+      v-if="ingredientParsed && ingredientParsed.usdaInfo"
+    >
+      <b-card
+        :title="ingredientParsed.usdaInfo.description"
+        sub-title="USDA match"
+      >
+        <b-button
+          :href="
+            `https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`
+          "
+          variant="primary"
+        >
+          View on USDA FoodCentral
+        </b-button>
+      </b-card>
     </b-card-group>
   </div>
 </template>
@@ -154,5 +172,9 @@ export default {
   color: black;
   background: #8e79c4;
   border: 0px;
+}
+
+.usda-match-cards {
+  margin-top: 50px;
 }
 </style>

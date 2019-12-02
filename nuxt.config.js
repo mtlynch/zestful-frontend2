@@ -19,6 +19,14 @@ export default {
       },
     ],
   },
+  buildModules: [
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-122091312-1',
+      },
+    ],
+  ],
   modules: ['@nuxtjs/axios', '@nuxtjs/sitemap', 'bootstrap-vue/nuxt'],
   sitemap: {
     hostname: 'https://zestfuldata.com/',

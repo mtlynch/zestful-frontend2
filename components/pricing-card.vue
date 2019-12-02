@@ -1,15 +1,19 @@
 <template>
   <b-card no-body :class="'mb-4 pricing-card' + ' pricing-card-' + variant">
     <b-card-header>
-      <h4 class="my-0 font-weight-normal">{{ title }}</h4>
+      <h4 class="my-0 font-weight-normal">
+        {{ title }}
+      </h4>
     </b-card-header>
     <b-card-body class="d-flex flex-column inner-body">
-      <b-card-title>{{ price }}</b-card-title>
+      <b-card-title>
+        {{ price }}
+      </b-card-title>
       <b-card-text>
         <b-list-group flush>
-          <b-list-group-item v-for="feature in features" v-bind:key="feature">{{
-            feature
-          }}</b-list-group-item>
+          <b-list-group-item v-for="feature in features" :key="feature">
+            {{ feature }}
+          </b-list-group-item>
         </b-list-group>
       </b-card-text>
       <b-button
@@ -17,8 +21,9 @@
         class="btn-lg btn-block align-self-end"
         :href="buttonHref"
         :variant="variant"
-        >{{ buttonText }}</b-button
       >
+        {{ buttonText }}
+      </b-button>
     </b-card-body>
   </b-card>
 </template>

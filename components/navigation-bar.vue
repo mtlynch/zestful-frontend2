@@ -5,7 +5,7 @@
         <img src="/images/logo.png" class="logo" alt="Zestful logo" />
       </b-navbar-brand>
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse" />
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">

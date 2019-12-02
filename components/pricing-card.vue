@@ -1,5 +1,8 @@
 <template>
-  <b-card no-body :class="'mb-4 pricing-card' + ' pricing-card-' + variant">
+  <b-card
+    no-body
+    :class="'mb-4 shadow pricing-card' + ' pricing-card-' + variant"
+  >
     <b-card-header>
       <h4 class="my-0 font-weight-normal">{{ title }}</h4>
     </b-card-header>

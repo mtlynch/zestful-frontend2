@@ -1,6 +1,6 @@
 export default {
   env: {
-    backendUrl: process.env.VUE_APP_BACKEND_URL,
+    backendUrl: process.env.BACKEND_URL,
   },
   head: {
     htmlAttrs: {

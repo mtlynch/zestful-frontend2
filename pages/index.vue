@@ -83,7 +83,7 @@
 <script>
 export default {
   head: {
-    title: 'Home page',
+    title: 'Simple API for Parsing Recipe Ingredients',
   },
 };
 </script>

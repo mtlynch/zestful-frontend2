@@ -149,15 +149,14 @@ import '../node_modules/prismjs/themes/prism-coy.css';
 Vue.use(VueMarkdown);
 
 export default {
-  head: {
-    title: 'Docs',
-  },
   components: {
-    Prism,
     VueMarkdown,
   },
   mounted() {
     Prism.highlightAll();
+  },
+  head: {
+    title: 'Docs',
   },
 };
 </script>

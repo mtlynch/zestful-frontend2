@@ -229,10 +229,6 @@ curl \\
   margin-top: 50px;
 }
 
-.curl-example {
-  margin-top: 50px;
-}
-
 .curl-example pre {
   margin-top: 20px;
   background: rgb(219, 219, 219);

@@ -173,4 +173,8 @@ export default {
 >>> code {
   margin: 20px auto;
 }
+
+>>> li {
+  margin-top: 15px;
+}
 </style>

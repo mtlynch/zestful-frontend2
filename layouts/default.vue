@@ -16,6 +16,10 @@ export default {
     return {
       link: [
         {
+          rel: 'canonical',
+          href: 'https://zestfuldata.com' + this.$route.path,
+        },
+        {
           rel: 'stylesheet',
           href:
             'https://fonts.googleapis.com/css?family=Calistoga|Rubik|Roboto&display=swap',

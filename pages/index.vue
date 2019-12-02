@@ -51,9 +51,10 @@
       </blockquote>
       <p class="quote-source">
         -Spoonacular's
-        <a href="https://spoonacular.com/food-api/terms" rel="nofollow"
-          >Terms of Service</a
-        >
+        <a
+          href="https://spoonacular.com/food-api/terms"
+          rel="nofollow"
+        >Terms of Service</a>
       </p>
     </div>
 
@@ -69,9 +70,7 @@
       </blockquote>
       <p class="quote-source">
         -Edamam's
-        <a href="https://developer.edamam.com/about/terms" rel="nofollow"
-          >Terms of Service</a
-        >
+        <a href="https://developer.edamam.com/about/terms" rel="nofollow">Terms of Service</a>
       </p>
     </div>
 
@@ -128,7 +127,7 @@ p {
 
 @media screen and (min-width: 768px) {
   .img-ingredient-translation {
-    max-height: 500px;
+    max-height: 450px;
   }
 }
 

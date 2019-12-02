@@ -28,21 +28,21 @@
       <b-card
         class="shadow-sm text-center"
         title="Make your recipes searchable"
-        img-src="/images/search-icon.png"
+        img-src="/images/search-icon.gif"
         img-alt="Search icon"
         img-top
       />
       <b-card
         class="shadow-sm text-center"
         title="Build shopping lists for your customers"
-        img-src="/images/shopping-cart-icon.png"
+        img-src="/images/shopping-cart-icon.gif"
         img-alt="Shopping cart icon"
         img-top
       />
       <b-card
         class="shadow-sm text-center"
         title="Create an ingredient database"
-        img-src="/images/database-icon.png"
+        img-src="/images/database-icon.gif"
         img-alt="Database icon"
         img-top
       />

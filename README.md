@@ -4,9 +4,9 @@
 
 ## Overview
 
-This is an example of a Vue + Nuxt configuration that generates a static site.
+This is an implementation of the Zestful Frontend in Vue + Nuxt. It generates the demo page for Zestful.
 
-## Live Demo
+## Live Site
 
 The live version of this project is at:
 

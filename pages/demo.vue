@@ -41,7 +41,7 @@
       </b-button>
     </div>
 
-    <b-card-group class="parsed-cards" deck v-if="ingredientParsed">
+    <b-card-group v-if="ingredientParsed" class="parsed-cards" deck>
       <b-card v-if="ingredientParsed.quantity !== null" class="shadow">
         <b-card-title>
           {{ ingredientParsed.quantity | number('0.0') | simplifyDecimal }}
@@ -55,35 +55,31 @@
         class="shadow"
         :title="ingredientParsed.unit"
         sub-title="units"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.productSizeModifier"
         class="shadow"
         :title="ingredientParsed.productSizeModifier"
         sub-title="product size modifier"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.product"
         class="shadow"
         :title="ingredientParsed.product"
         sub-title="product"
-      >
-      </b-card>
+      />
       <b-card
         v-if="ingredientParsed.preparationNotes"
         class="shadow"
         :title="ingredientParsed.preparationNotes"
         sub-title="preparation instructions"
-      >
-      </b-card>
+      />
     </b-card-group>
 
     <b-card-group
+      v-if="ingredientParsed && ingredientParsed.usdaInfo"
       class="usda-match-cards"
       deck
-      v-if="ingredientParsed && ingredientParsed.usdaInfo"
     >
       <b-card
         class="shadow-sm"
@@ -101,7 +97,7 @@
       </b-card>
     </b-card-group>
 
-    <b-card-group class="confidence-cards" deck v-if="confidence !== null">
+    <b-card-group v-if="confidence !== null" class="confidence-cards" deck>
       <b-card class="shadow-sm">
         <b-card-title>
           {{ (confidence * 100.0) | number('0.00') }}%

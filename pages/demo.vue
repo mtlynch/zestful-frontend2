@@ -22,7 +22,11 @@
       <b-button type="reset" variant="outline-primary">Reset</b-button>
     </b-form>
 
-    <div v-if="isWaitingForParseResult" class="spinner-border text-success" role="status">
+    <div
+      v-if="isWaitingForParseResult"
+      class="spinner-border text-success"
+      role="status"
+    >
       <span class="sr-only">Loading...</span>
     </div>
 
@@ -35,16 +39,23 @@
           class="example-input"
           variant="primary"
           @click="
-          form.ingredient = input;
-          parseIngredient(input);
-        "
-        >{{ input }}</b-button>
+            form.ingredient = input;
+            parseIngredient(input);
+          "
+          >{{ input }}</b-button
+        >
       </div>
     </template>
 
-    <b-card-group v-if="ingredientParsed && !isWaitingForParseResult" class="parsed-cards" deck>
+    <b-card-group
+      v-if="ingredientParsed && !isWaitingForParseResult"
+      class="parsed-cards"
+      deck
+    >
       <b-card v-if="ingredientParsed.quantity !== null" class="shadow">
-        <b-card-title>{{ ingredientParsed.quantity | number('0.0') | simplifyDecimal }}</b-card-title>
+        <b-card-title>{{
+          ingredientParsed.quantity | number('0.0') | simplifyDecimal
+        }}</b-card-title>
         <b-card-sub-title>quantity</b-card-sub-title>
       </b-card>
       <b-card
@@ -74,7 +85,11 @@
     </b-card-group>
 
     <b-card-group
-      v-if="ingredientParsed && ingredientParsed.usdaInfo && !isWaitingForParseResult"
+      v-if="
+        ingredientParsed &&
+          ingredientParsed.usdaInfo &&
+          !isWaitingForParseResult
+      "
       class="usda-match-cards"
       deck
     >
@@ -86,10 +101,11 @@
         <b-card-body class="usda-link">
           <a
             :href="
-            `https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`
-          "
+              `https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`
+            "
             variant="primary-outline"
-          >View on USDA FoodCentral</a>
+            >View on USDA FoodCentral</a
+          >
         </b-card-body>
       </b-card>
     </b-card-group>
@@ -100,7 +116,9 @@
       deck
     >
       <b-card class="shadow-sm">
-        <b-card-title>{{ (confidence * 100.0) | number('0.00') }}%</b-card-title>
+        <b-card-title
+          >{{ (confidence * 100.0) | number('0.00') }}%</b-card-title
+        >
         <b-card-sub-title>confidence</b-card-sub-title>
       </b-card>
     </b-card-group>

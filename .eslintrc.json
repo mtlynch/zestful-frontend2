@@ -12,5 +12,13 @@
   ],
   "rules": {
     "vue/max-attributes-per-line": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["./pages/docs.vue"],
+      "rules": {
+        "vue/html-indent": "off"
+      }
+    }
+  ]
 }

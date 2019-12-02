@@ -1,7 +1,10 @@
 {
   "name": "zestful-frontend2",
   "dependencies": {
-    "nuxt": "^2.10.2"
+    "babel-runtime": "^6.26.0",
+    "nuxt": "^2.10.2",
+    "prismjs": "^1.17.1",
+    "vue-markdown": "^2.2.4"
   },
   "scripts": {
     "dev": "nuxt --port 3700",

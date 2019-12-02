@@ -7,19 +7,32 @@
         id="input-group-1"
         label="Enter a recipe ingredient below to see how Zestful's ingredient parser
       works:"
-        label-for="input-1"
+        label-for="ingredient-input"
       >
         <b-form-input
-          id="input-1"
+          id="ingredient-input"
           v-model="form.ingredient"
+          class="ingredient-input"
           type="text"
           required
           placeholder="Enter ingredient"
         />
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Parse</b-button>
-      <b-button type="reset" variant="outline-primary">Reset</b-button>
+      <b-button
+        :disabled="isWaitingForParseResult"
+        type="submit"
+        class="btn-lg"
+        variant="primary"
+        >Parse</b-button
+      >
+      <b-button
+        :disabled="isWaitingForParseResult"
+        type="reset"
+        class="btn-lg"
+        variant="outline-primary"
+        >Reset</b-button
+      >
     </b-form>
 
     <div
@@ -53,9 +66,9 @@
       deck
     >
       <b-card v-if="ingredientParsed.quantity !== null" class="shadow">
-        <b-card-title>{{
-          ingredientParsed.quantity | number('0.0') | simplifyDecimal
-        }}</b-card-title>
+        <b-card-title>
+          {{ ingredientParsed.quantity | number('0.0') | simplifyDecimal }}
+        </b-card-title>
         <b-card-sub-title>quantity</b-card-sub-title>
       </b-card>
       <b-card
@@ -235,12 +248,20 @@ curl \\
 </script>
 
 <style scoped>
+h1 {
+  margin-bottom: 60px;
+}
+
 .code {
   font-family: 'Courier New', Courier, monospace;
 }
 
 .ingredient-form {
   margin-bottom: 50px;
+}
+
+.ingredient-input {
+  margin: 40px 0px 20px 0px;
 }
 
 .example-inputs {
@@ -292,7 +313,7 @@ curl \\
 
 @media screen and (min-width: 768px) {
   .confidence-cards >>> .card {
-    max-width: 120px;
+    max-width: 130px;
   }
 }
 

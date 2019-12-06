@@ -24,7 +24,7 @@ export default {
       },
       {
         name: 'og:image',
-        content: 'https://zestfuldata.com/images/ingredient-translation.jpg',
+        content: 'https://zestfuldata.com/images/ingredient-translation.png',
       },
       {name: 'og:image:width', content: '635'},
       {name: 'og:image:height', content: '558'},

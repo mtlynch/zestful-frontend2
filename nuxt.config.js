@@ -68,13 +68,12 @@ export default {
   },
   buildModules: [
     [
-      '@nuxtjs/dotenv',
-      [
-        '@nuxtjs/google-analytics',
-        {
-          id: 'UA-122091312-1',
-        },
-      ],
+      // TODO(mtlynch): Add dotenv back in without breaking Google Analytics.
+      // '@nuxtjs/dotenv',
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-122091312-1',
+      },
     ],
   ],
   modules: [

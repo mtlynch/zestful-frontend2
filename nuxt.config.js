@@ -68,11 +68,13 @@ export default {
   },
   buildModules: [
     [
+      [
+        '@nuxtjs/google-analytics',
+        {
+          id: 'UA-122091312-1',
+        },
+      ],
       '@nuxtjs/dotenv',
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-122091312-1',
-      },
     ],
   ],
   modules: [

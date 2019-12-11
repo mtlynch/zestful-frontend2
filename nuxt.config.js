@@ -12,22 +12,25 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:locale', content: 'en_US'},
+      {property: 'og:site_name', content: 'Zestful'},
       {
         name: 'description',
         content:
           'A machine-learning-powered ingredient parser API. Parse your recipe ingredients into clean, structured JSON. Built to power the best food apps online.',
       },
       {
-        name: 'og:description',
+        property: 'og:description',
         content:
           'A machine-learning-powered ingredient parser API. Parse your recipe ingredients into clean, structured JSON. Built to power the best food apps online.',
       },
       {
-        name: 'og:image',
+        property: 'og:image',
         content: 'https://zestfuldata.com/images/ingredient-translation.png',
       },
-      {name: 'og:image:width', content: '635'},
-      {name: 'og:image:height', content: '558'},
+      {property: 'og:image:width', content: '635'},
+      {property: 'og:image:height', content: '558'},
     ],
     link: [
       {

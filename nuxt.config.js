@@ -68,8 +68,6 @@ export default {
   },
   buildModules: [
     [
-      // TODO(mtlynch): Add dotenv back in without breaking Google Analytics.
-      // '@nuxtjs/dotenv',
       '@nuxtjs/google-analytics',
       {
         id: 'UA-122091312-1',
@@ -78,6 +76,9 @@ export default {
   ],
   modules: [
     '@nuxtjs/axios',
+    // dotenv's documentation says to add it to buildModules, but that causes
+    // google-analytics to break.
+    '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     'bootstrap-vue/nuxt',

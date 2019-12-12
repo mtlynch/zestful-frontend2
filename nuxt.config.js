@@ -67,6 +67,7 @@ export default {
     ],
   },
   buildModules: [
+    '@nuxtjs/dotenv',
     [
       '@nuxtjs/google-analytics',
       {
@@ -76,9 +77,6 @@ export default {
   ],
   modules: [
     '@nuxtjs/axios',
-    // dotenv's documentation says to add it to buildModules, but that causes
-    // google-analytics to break.
-    '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
     'bootstrap-vue/nuxt',

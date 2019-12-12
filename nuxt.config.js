@@ -36,7 +36,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'favicon.ico',
+        href: '/favicon.ico',
       },
       {
         rel: 'icon',
@@ -62,7 +62,7 @@ export default {
       },
       {
         rel: 'manifest',
-        href: 'site.webmanifest',
+        href: '/site.webmanifest',
       },
     ],
   },

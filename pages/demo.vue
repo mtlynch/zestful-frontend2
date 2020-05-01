@@ -104,8 +104,8 @@
     <b-card-group
       v-if="
         ingredientParsed &&
-          ingredientParsed.usdaInfo &&
-          !isWaitingForParseResult
+        ingredientParsed.usdaInfo &&
+        !isWaitingForParseResult
       "
       class="usda-match-cards"
       deck
@@ -117,9 +117,7 @@
       >
         <b-card-body class="usda-link">
           <a
-            :href="
-              `https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`
-            "
+            :href="`https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`"
             variant="primary-outline"
             >View on USDA FoodCentral</a
           >
@@ -168,13 +166,13 @@ import Vue2Filters from 'vue2-filters';
 
 Vue.use(Vue2Filters);
 
-Vue.filter('simplifyDecimal', function(value) {
+Vue.filter('simplifyDecimal', function (value) {
   return value.replace('.0', '');
 });
 
 export default {
   computed: {
-    curlCmd: function() {
+    curlCmd: function () {
       if (!this.ingredientRawReflected) {
         return null;
       }
@@ -220,7 +218,7 @@ curl \\
         .$post(url, {
           ingredients: [ingredient],
         })
-        .then(response => {
+        .then((response) => {
           this.ingredientParsed = response.results[0].ingredientParsed;
           this.confidence = response.results[0].confidence;
           this.ingredientRawReflected = response.results[0].ingredientRaw;
@@ -229,7 +227,7 @@ curl \\
           }
           this.backendError = null;
         })
-        .catch(error => {
+        .catch((error) => {
           this.backendError = error;
         })
         .finally(() => {

@@ -22,7 +22,7 @@ export default {
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css?family=Calistoga|Rubik|Roboto&display=swap',
+            'https://fonts.googleapis.com/css?family=Jost|Rubik|Roboto&display=swap',
         },
       ],
     };
@@ -40,7 +40,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Calistoga', serif;
+  font-family: 'Jost', serif;
 }
 
 h1 {

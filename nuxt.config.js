@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 export default {
+  target: 'static',
   env: {
     backendUrl: process.env.BACKEND_URL || 'https://sandbox.zestfuldata.com',
   },

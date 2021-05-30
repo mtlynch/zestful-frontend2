@@ -9,18 +9,10 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item class="standard-link" to="/">
-            About
-          </b-nav-item>
-          <b-nav-item class="standard-link" to="/demo">
-            Demo
-          </b-nav-item>
-          <b-nav-item class="standard-link" to="/pricing">
-            Pricing
-          </b-nav-item>
-          <b-nav-item class="standard-link" to="/docs">
-            Docs
-          </b-nav-item>
+          <b-nav-item class="standard-link" to="/"> About </b-nav-item>
+          <b-nav-item class="standard-link" to="/demo"> Demo </b-nav-item>
+          <b-nav-item class="standard-link" to="/pricing"> Pricing </b-nav-item>
+          <b-nav-item class="standard-link" to="/docs"> Docs </b-nav-item>
           <b-nav-item
             class="accent-link"
             href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"

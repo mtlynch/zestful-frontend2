@@ -9,7 +9,7 @@
     "vue2-filters": "^0.11.0"
   },
   "scripts": {
-    "dev": "nuxt --port 3800",
+    "serve": "nuxt --port 3800",
     "generate": "nuxt generate",
     "check-format": "prettier --check ./**/*.js ./**/*.vue ./**/*.json",
     "format": "prettier --write ./**/*.js ./**/*.vue ./**/*.json",

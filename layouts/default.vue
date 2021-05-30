@@ -21,8 +21,7 @@ export default {
         },
         {
           rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css?family=Jost|Rubik|Roboto&display=swap',
+          href: 'https://fonts.googleapis.com/css?family=Jost|Rubik|Roboto&display=swap',
         },
       ],
     };

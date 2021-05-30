@@ -2,9 +2,7 @@
   <div class="terms">
     <h1>Terms of Use</h1>
 
-    <h2>
-      Terms
-    </h2>
+    <h2>Terms</h2>
     <p>
       By accessing the website at
       <a href="https://zestfuldata.com">zestfuldata.com</a> or Zestful's APIs
@@ -31,18 +29,14 @@
       unrestricted length of time.
     </p>
 
-    <h3>
-      Resale
-    </h3>
+    <h3>Resale</h3>
 
     <p>
       Zestful grants you the right to resell data from our API or derived from
       our API.
     </p>
 
-    <h3>
-      Attribution
-    </h3>
+    <h3>Attribution</h3>
 
     <p>
       You are permitted to, but not required to, credit Zestful as the source.
@@ -54,9 +48,7 @@
       your organization without prior written consent from Zestful.
     </p>
 
-    <h2>
-      Term and Termination
-    </h2>
+    <h2>Term and Termination</h2>
 
     <p>
       The rights duties and obligations under these Terms shall commence on the
@@ -82,9 +74,7 @@
       terminating this agreement.
     </p>
 
-    <h2>
-      Content Disclaimer
-    </h2>
+    <h2>Content Disclaimer</h2>
 
     <p>
       The materials on Zestful's website are provided on an 'as-is' basis.
@@ -101,17 +91,11 @@
       linked to this site.
     </p>
 
-    <h2>
-      Refunds
-    </h2>
+    <h2>Refunds</h2>
 
-    <p>
-      Zestful offers refunds on a case-by-case basis.
-    </p>
+    <p>Zestful offers refunds on a case-by-case basis.</p>
 
-    <h2>
-      Limitations
-    </h2>
+    <h2>Limitations</h2>
     <p>
       In no event shall Zestful or its suppliers be liable for any damages
       (including, without limitation, damages for loss of data or profit, or due
@@ -124,9 +108,7 @@
       you.
     </p>
 
-    <h2>
-      Accuracy and availability of materials
-    </h2>
+    <h2>Accuracy and availability of materials</h2>
     <p>
       The materials appearing on Zestful's website or services could include
       technical, typographical, or photographic errors. Zestful does not warrant
@@ -138,9 +120,7 @@
       commitment to update the materials.
     </p>
 
-    <h2>
-      Modifications
-    </h2>
+    <h2>Modifications</h2>
     <p>
       Zestful may revise these terms of service for its website and service at
       any time without notice. By using Zestful's website and services, you are
@@ -148,9 +128,7 @@
       service.
     </p>
 
-    <h2>
-      Governing Law
-    </h2>
+    <h2>Governing Law</h2>
     <p>
       These terms and conditions are governed by and construed in accordance
       with the laws of Massachusetts and you irrevocably submit to the exclusive

@@ -9,6 +9,7 @@ This is an implementation of the Zestful Frontend in Vue + Nuxt. It generates th
 ## Dev Setup
 
 ```bash
+echo "BACKEND_URL='http://localhost:8888'" > .env
 npm install
 npm run serve
 ```

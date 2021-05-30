@@ -3,7 +3,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
     "babel-runtime": "^6.26.0",
-    "nuxt": "^2.12.2",
+    "nuxt": "^2.15.6",
     "prismjs": "^1.23.0",
     "vue-markdown": "^2.2.4",
     "vue2-filters": "^0.11.0"

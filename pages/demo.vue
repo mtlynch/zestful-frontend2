@@ -149,13 +149,20 @@
       </b-card>
     </b-card-group>
 
-    <div v-if="curlCmd" class="curl-example">
+    <div v-if="curlCmd" class="code-example">
       <h2>
         Calling Zestful via
         <span class="code">curl</span>
       </h2>
 
       <pre class="curl-snippet shadow">{{ curlCmd }}</pre>
+    </div>
+    <div v-if="pythonSnippet" class="code-example">
+      <h2>
+        Calling Zestful via Python
+      </h2>
+
+      <pre class="python-snippet shadow">{{ pythonSnippet }}</pre>
     </div>
   </div>
 </template>
@@ -189,6 +196,22 @@ curl \\
     ]
   }' \\
   "${process.env.backendUrl}/parseIngredients"
+`.trim();
+    },
+    pythonSnippet: function () {
+      if (!this.ingredientRawReflected) {
+        return null;
+      }
+      const ingredientEscaped = this.ingredientRawReflected.replace(
+        /'/g,
+        "\\'"
+      );
+      return `
+import json
+import parse_ingredient # pip install zestful-parse-ingredient
+
+ingredient = parse_ingredient.parse('${ingredientEscaped}')
+print(json.dumps(ingredient.as_dict()))
 `.trim();
     },
   },
@@ -334,10 +357,12 @@ h1 {
     max-width: 220px;
   }
 }
-.curl-example pre {
-  margin-top: 20px;
+
+.code-example pre {
+  display: inline-block;
+  margin-top: 1rem;
   background: rgb(219, 219, 219);
   border: 1px solid black;
-  padding: 15px;
+  padding: 1rem;
 }
 </style>

@@ -16,18 +16,19 @@
           type="text"
           required
           placeholder="Enter ingredient"
+          :disabled="isQuotaExhausted"
         />
       </b-form-group>
 
       <b-button
-        :disabled="isWaitingForParseResult"
+        :disabled="isWaitingForParseResult || isQuotaExhausted"
         type="submit"
         class="btn-lg"
         variant="primary"
         >Parse</b-button
       >
       <b-button
-        :disabled="isWaitingForParseResult"
+        :disabled="isWaitingForParseResult || isQuotaExhausted"
         type="reset"
         class="btn-lg"
         variant="outline-primary"
@@ -43,10 +44,6 @@
       <span class="sr-only">Loading...</span>
     </div>
 
-    <div v-if="backendError" class="alert alert-warning" role="alert">
-      Failed to communicate with Zestful server: {{ backendError }}
-    </div>
-
     <template v-if="!ingredientParsed && !isWaitingForParseResult">
       <p>Or choose an example below:</p>
       <div class="example-inputs">
@@ -55,6 +52,7 @@
           :key="input"
           class="example-input"
           variant="primary"
+          :disabled="isQuotaExhausted"
           @click="
             form.ingredient = input;
             parseIngredient(input);
@@ -63,6 +61,20 @@
         >
       </div>
     </template>
+
+    <div v-if="isQuotaExhausted" class="alert alert-warning" role="alert">
+      <p>
+        You have used up your available free ingredient parses on the Zestful
+        demo server.
+      </p>
+      <p>
+        To continue using Zestful, purchase a
+        <router-link to="/pricing">subscription</router-link>.
+      </p>
+    </div>
+    <div v-else-if="backendError" class="alert alert-warning" role="alert">
+      Failed to communicate with Zestful server: {{ backendError }}
+    </div>
 
     <b-card-group
       v-if="ingredientParsed && !isWaitingForParseResult"
@@ -223,6 +235,7 @@ print(json.dumps(ingredient.as_dict()))
       ingredientRawReflected: null,
       requestsRemaining: null,
       isWaitingForParseResult: false,
+      isQuotaExhausted: false,
       backendError: null,
       exampleInputs: [
         '2 1/2 tablespoons finely chopped parsley',
@@ -240,9 +253,18 @@ print(json.dumps(ingredient.as_dict()))
           ingredients: [ingredient],
         })
         .then((response) => {
-          this.ingredientParsed = response.results[0].ingredientParsed;
-          this.confidence = response.results[0].confidence;
-          this.ingredientRawReflected = response.results[0].ingredientRaw;
+          if (response.error) {
+            if (response.error.toLowerCase().includes('insufficient quota')) {
+              this.isQuotaExhausted = true;
+            } else {
+              this.backendError = response.error;
+            }
+            return;
+          }
+          const result = response.results[0];
+          this.ingredientParsed = result.ingredientParsed;
+          this.confidence = result.confidence;
+          this.ingredientRawReflected = result.ingredientRaw;
           if (typeof response.requestsRemaining !== 'undefined') {
             this.requestsRemaining = response.requestsRemaining;
           }
@@ -318,6 +340,10 @@ h1 {
   .example-input {
     margin-bottom: 0px;
   }
+}
+
+.alert {
+  margin: 2rem 0;
 }
 
 .card-deck {

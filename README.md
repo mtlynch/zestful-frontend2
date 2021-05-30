@@ -6,6 +6,13 @@
 
 This is an implementation of the Zestful Frontend in Vue + Nuxt. It generates the demo page for Zestful.
 
+## Dev Setup
+
+```bash
+npm install
+npm run serve
+```
+
 ## Live Site
 
 The live version of this project is at:

@@ -158,9 +158,7 @@
       <pre class="curl-snippet shadow">{{ curlCmd }}</pre>
     </div>
     <div v-if="pythonSnippet" class="code-example">
-      <h2>
-        Calling Zestful via Python
-      </h2>
+      <h2>Calling Zestful via Python</h2>
 
       <pre class="python-snippet shadow">{{ pythonSnippet }}</pre>
     </div>

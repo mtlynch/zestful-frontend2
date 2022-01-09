@@ -383,6 +383,10 @@ h1 {
 }
 
 .code-example pre {
+  max-width: 100%;
+}
+
+.code-example pre {
   display: inline-block;
   margin-top: 1rem;
   background: rgb(219, 219, 219);

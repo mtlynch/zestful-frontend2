@@ -83,7 +83,7 @@
     >
       <b-card v-if="ingredientParsed.quantity !== null" class="shadow">
         <b-card-title>
-          {{ ingredientParsed.quantity | number('0.0') | simplifyDecimal }}
+          {{ ingredientParsed.quantity | number('0.000') | simplifyDecimal }}
         </b-card-title>
         <b-card-sub-title>quantity</b-card-sub-title>
       </b-card>
@@ -184,7 +184,7 @@ import Vue2Filters from 'vue2-filters';
 Vue.use(Vue2Filters);
 
 Vue.filter('simplifyDecimal', function (value) {
-  return value.replace('.0', '');
+  return value.replace(/\.?0+$/g, '');
 });
 
 export default {

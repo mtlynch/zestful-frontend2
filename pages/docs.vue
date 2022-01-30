@@ -110,6 +110,7 @@ The `/parseIngredients` endpoint parses a list of raw ingredient strings into st
         * Preparation notes refer to actions that a user takes after purchasing an ingredient. In some cases, such as "ground cinnamon" this is ambiguous because a user can purchase whole cinnamon sticks and grind them (which would treat grinding as a preparation step) or a user can purchase the product "ground cinnamon" (which has no preparation steps).
         * For ambiguous cases, the parser attempts to choose the product that is more common. For example, "ground cinnamon" is treated as a product name because most users purchase cinnamon pre-ground. In contrast, "diced celery" is interpreted as `product="celery"`, `preparationNotes="diced"` because users more commonly dice celery instead of buying pre-diced celery.
     * `usdaInfo`: If Zestful can match the ingredient to a food in the USDA database, this contains a dictionary of information about the matching USDA entry.
+        * The results are based on the [2021-04-28 USDA database](https://usda-snapshots.zestfuldata.com/FoodData_Central_csv_2021-04-28/FoodData_Central_csv_2021-04-28.zip).
         * `fdcId`: The FDC ID for the food in the USDA FoodData Central database (e.g., ["168833"](https://fdc.nal.usda.gov/fdc-app.html#/food-details/168833/nutrients))
         * `matchMethod`: The method that Zestful used to match the ingredient to a USDA entry. This can be one of the following values:
             * `exact`: Zestful found an exact match for this product in the USDA database.

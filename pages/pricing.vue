@@ -22,7 +22,7 @@
         title="Enterprise"
         price="Flat Fee"
         :features="[
-          'Self-hosted or private managed server',
+          'Private managed server',
           'Unlimited ingredient parses',
           'Priority e-mail and phone support',
         ]"

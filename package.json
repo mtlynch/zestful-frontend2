@@ -9,8 +9,8 @@
     "vue2-filters": "^0.12.0"
   },
   "scripts": {
-    "serve": "nuxt --hostname 0.0.0.0 --port 3800",
-    "generate": "nuxt generate",
+    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt --hostname 0.0.0.0 --port 3800",
+    "generate": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt generate",
     "check-format": "prettier --check ./**/*.js ./**/*.vue ./**/*.json",
     "format": "prettier --write ./**/*.js ./**/*.vue ./**/*.json",
     "fix-lint": "eslint --fix ./**/*.js ./**/*.vue",

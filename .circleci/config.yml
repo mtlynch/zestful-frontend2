@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:20.6.1-stretch
+      - image: circleci/node:20.6.1-bullseye
     steps:
       - checkout
       - run:

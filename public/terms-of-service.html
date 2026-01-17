@@ -1,6 +1,50 @@
-<template>
-  <div class="terms">
-    <h1>Terms of Use</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Use</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/vendor/fonts/fonts.css" />
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html">
+          <img src="/images/logo.png" class="logo" alt="Zestful logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#nav-collapse"
+          aria-controls="nav-collapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link standard-link" href="/index.html">About</a>
+            <a class="nav-link standard-link" href="/demo.html">Demo</a>
+            <a class="nav-link standard-link" href="/pricing.html">Pricing</a>
+            <a class="nav-link standard-link" href="/docs.html">Docs</a>
+            <a
+              class="nav-link accent-link"
+              href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"
+              >Get Started</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container terms">
+<h1>Terms of Use</h1>
 
     <h2>Terms</h2>
     <p>
@@ -134,19 +178,8 @@
       with the laws of Massachusetts and you irrevocably submit to the exclusive
       jurisdiction of the courts in that State or location.
     </p>
-  </div>
-</template>
+    </main>
 
-<script>
-export default {
-  head: {
-    title: 'Terms of Use',
-  },
-};
-</script>
-
-<style scoped>
-p {
-  max-width: 600px;
-}
-</style>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

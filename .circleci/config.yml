@@ -1,42 +1,72 @@
 version: 2.1
+executors:
+  node:
+    docker:
+      - image: cimg/node:24.4.1
 jobs:
   build:
-    docker:
-      - image: circleci/node:14.17.0-stretch
+    executor: node
     steps:
       - checkout
       - run:
           name: Download npm packages
           command: npm install
       - run:
-          name: Check JavaScript formatting
+          name: Check formatting
           command: npm run check-format
       - run:
           name: Run linter
           command: npm run lint
       - run:
-          name: Build static pages
-          command: npm run generate
+          name: Write runtime config
+          command: |
+            node -e "const fs=require('fs');const url=process.env.BACKEND_URL||'http://localhost:8888';fs.writeFileSync('public/config.json', JSON.stringify({BACKEND_URL:url}, null, 2)+'\n');"
       - persist_to_workspace:
           root: ./
           paths:
-            - ./dist
-            - firebase.json
-            - .firebaserc
-  deploy:
-    docker:
-      - image: mtlynch/firebase-tools:8.1.1-node-14.0.0
+            - public
+            - netlify.toml
+  publish_draft:
+    executor: node
+    resource_class: small
     steps:
       - attach_workspace:
           at: ./
       - run:
-          name: Deploy to firebase
-          command: firebase deploy --token="${FIREBASE_DEPLOY_TOKEN}"
+          name: Install netlify CLI
+          command: npm install netlify-cli@23.7.3 --save-dev
+      - run:
+          name: Print netlify version
+          command: ./node_modules/.bin/netlify version
+      - run:
+          name: Deploy a live draft
+          command: ./node_modules/.bin/netlify deploy --dir=public --site="${NETLIFY_SITE_ID}"
+  deploy:
+    executor: node
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Install netlify CLI
+          command: npm install netlify-cli@23.7.3 --save-dev
+      - run:
+          name: Print netlify version
+          command: ./node_modules/.bin/netlify version
+      - run:
+          name: Deploy to production
+          command: ./node_modules/.bin/netlify deploy --dir=public --site="${NETLIFY_SITE_ID}" --prod
 workflows:
   version: 2
-  test-deploy:
+  test_deploy:
     jobs:
       - build
+      - publish_draft:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: master
       - deploy:
           requires:
             - build

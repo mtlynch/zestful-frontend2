@@ -1,0 +1,18 @@
+[build]
+  command = "node -e \"const fs=require('fs');const url=process.env.BACKEND_URL||'http://localhost:8888';fs.writeFileSync('public/config.json', JSON.stringify({BACKEND_URL:url}, null, 2)+'\\n');\""
+  publish = "public"
+
+[build.environment]
+  BACKEND_URL = "http://localhost:8888"
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"

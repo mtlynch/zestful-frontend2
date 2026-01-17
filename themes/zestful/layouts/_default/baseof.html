@@ -13,11 +13,13 @@
   <body>
     {{ partial "nav.html" . }}
 
-    <main class="container {{ block "body_class" . }}{{ end }}">
+    <main class="container {{ with .Params.body_class }}{{ . }}{{ end }}">
       {{ block "main" . }}{{ end }}
     </main>
 
     <script src="/js/nav.js"></script>
-    {{ block "scripts" . }}{{ end }}
+    {{ if .Params.include_demo_script }}
+      <script src="/js/demo.js"></script>
+    {{ end }}
   </body>
 </html>

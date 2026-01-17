@@ -3,8 +3,11 @@ executors:
   node:
     docker:
       - image: cimg/node:24.4.1
+  hugo:
+    docker:
+      - image: hugomods/hugo:0.147.5
 jobs:
-  build:
+  lint:
     executor: node
     steps:
       - checkout
@@ -13,14 +16,28 @@ jobs:
           command: npm install
       - run:
           name: Check formatting
-          command: npm run check-format
+          command: ./dev-scripts/check-formatting
       - run:
           name: Run linter
-          command: npm run lint
+          command: ./dev-scripts/lint
+  build:
+    executor: hugo
+    steps:
+      - checkout
+      - run:
+          name: Install bash
+          command: apk add --no-cache bash
+      - run:
+          name: Build site
+          command: ./dev-scripts/build
       - run:
           name: Write runtime config
           command: |
-            node -e "const fs=require('fs');const url=process.env.BACKEND_URL||'http://localhost:8888';fs.writeFileSync('public/config.json', JSON.stringify({BACKEND_URL:url}, null, 2)+'\n');"
+            if [[ -z "${BACKEND_URL:-}" ]]; then
+              echo "BACKEND_URL must be set for the CI build."
+              exit 1
+            fi
+            ./dev-scripts/write-config
       - persist_to_workspace:
           root: ./
           paths:
@@ -60,7 +77,10 @@ workflows:
   version: 2
   test_deploy:
     jobs:
-      - build
+      - lint
+      - build:
+          requires:
+            - lint
       - publish_draft:
           requires:
             - build

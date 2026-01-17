@@ -1,0 +1,9 @@
+name = "zestful"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Custom theme for Zestful"
+homepage = "https://zestfuldata.com"
+min_version = "0.80.0"
+
+[author]
+  name = "Zestful"

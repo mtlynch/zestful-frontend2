@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/images/logo.png" class="logo" alt="Zestful logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#nav-collapse"
+      aria-controls="nav-collapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav-collapse">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link standard-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="/">About</a>
+        <a class="nav-link standard-link {{ if eq .RelPermalink "/demo/" }}active{{ end }}" href="/demo/">Demo</a>
+        <a class="nav-link standard-link {{ if eq .RelPermalink "/pricing/" }}active{{ end }}" href="/pricing/">Pricing</a>
+        <a class="nav-link standard-link {{ if eq .RelPermalink "/docs/" }}active{{ end }}" href="/docs/">Docs</a>
+        <a
+          class="nav-link accent-link"
+          href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"
+          >Get Started</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

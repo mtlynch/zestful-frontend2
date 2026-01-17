@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/third-party/fonts/fonts.css" />
+    <link rel="stylesheet" href="/third-party/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    {{ partial "nav.html" . }}
+
+    <main class="container {{ block "body_class" . }}{{ end }}">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <script src="/js/nav.js"></script>
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>

@@ -2,11 +2,12 @@
   "name": "zestful-frontend2",
   "private": true,
   "scripts": {
-    "serve": "python -m http.server 3800 --directory public",
-    "check-format": "prettier --check \"public/**/*.{html,css,js,json}\"",
-    "format": "prettier --write \"public/**/*.{html,css,js,json}\"",
-    "lint": "eslint \"public/js/**/*.js\"",
-    "fix-lint": "eslint --fix \"public/js/**/*.js\""
+    "serve": "./dev-scripts/serve",
+    "build": "./dev-scripts/build",
+    "check-format": "./dev-scripts/check-formatting",
+    "format": "./dev-scripts/fix-formatting",
+    "lint": "./dev-scripts/lint",
+    "fix-lint": "./dev-scripts/fix-lint"
   },
   "devDependencies": {
     "eslint": "7.27.0",

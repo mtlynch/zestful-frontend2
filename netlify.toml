@@ -1,9 +1,10 @@
 [build]
-  command = "node -e \"const fs=require('fs');const url=process.env.BACKEND_URL||'http://localhost:8888';fs.writeFileSync('public/config.json', JSON.stringify({BACKEND_URL:url}, null, 2)+'\\n');\""
+  command = "./dev-scripts/build && ./dev-scripts/write-config"
   publish = "public"
 
 [build.environment]
   BACKEND_URL = "http://localhost:8888"
+  HUGO_VERSION = "0.147.5"
 
 [[redirects]]
   from = "/"

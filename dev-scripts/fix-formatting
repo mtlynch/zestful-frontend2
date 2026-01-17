@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Exit script on first failure.
+set -e
+
+# Echo commands before executing them, by default to stderr.
+set -x
+
+# Exit on unset variable.
+set -u
+
+./node_modules/.bin/prettier --write \
+  "content/**/*.md" \
+  "themes/**/*.html" \
+  "static/css/**/*.css" \
+  "static/js/**/*.js" \
+  "static/config.json" \
+  "static/site.webmanifest" \
+  "third-party-licenses.txt"

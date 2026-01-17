@@ -2,25 +2,35 @@
 
 ## Overview
 
-This is the Zestful frontend implemented as a static site (vanilla HTML/CSS/JS).
+This is the Zestful frontend implemented as a static Hugo site (vanilla HTML/CSS/JS).
 
 ## Dev Setup
 
 ```bash
-# Edit the runtime config used by demo.js.
+# Optionally update the runtime config used by demo.js.
 # (Default is http://localhost:8888)
-$EDITOR public/config.json
+BACKEND_URL='http://localhost:8888' ./dev-scripts/write-config
 
-# Serve the static site locally.
-python -m http.server 3800 --directory public
+# Run the Hugo dev server.
+./dev-scripts/serve
 ```
 
-Open http://localhost:3800/index.html
+Open http://localhost:1313/
+
+## Build
+
+```bash
+./dev-scripts/build
+```
 
 ## Netlify
 
-Netlify publishes `public/`. Set `BACKEND_URL` in Netlify, and the app reads it
-at runtime from `/config.json`.
+Netlify publishes `public/`. Set `BACKEND_URL` in Netlify, and the build runs
+`./dev-scripts/build` and `./dev-scripts/write-config` to generate `/config.json`.
+
+## Third-Party Notices
+
+See `third-party-licenses.txt` for required attributions and license texts.
 
 ## Live Site
 

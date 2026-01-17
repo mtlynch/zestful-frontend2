@@ -298,9 +298,9 @@
         confidence = result.confidence;
         ingredientRawReflected = result.ingredientRaw;
         requestsRemaining =
-        typeof data.requestsRemaining !== 'undefined'
-        ? data.requestsRemaining
-        : null;
+          typeof data.requestsRemaining !== 'undefined'
+            ? data.requestsRemaining
+            : null;
 
         renderAll();
       } catch (error) {
@@ -309,28 +309,30 @@
         isWaiting = false;
         updateControls();
       }
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        parseIngredient(input.value.trim());
-      });
-
-      form.addEventListener('reset', (event) => {
-        event.preventDefault();
-        input.value = '';
-        resetState();
-      });
-
-      exampleButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const value = button.dataset.example || button.textContent.trim();
-          input.value = value;
-          parseIngredient(value);
-        });
-      });
-
-      resetState();
     };
 
-    init();
-  })();
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      parseIngredient(input.value.trim());
+    });
+
+    form.addEventListener('reset', (event) => {
+      event.preventDefault();
+      input.value = '';
+      resetState();
+    });
+
+    exampleButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.example || button.textContent.trim();
+        input.value = value;
+        parseIngredient(value);
+      });
+    });
+
+    resetState();
+
+  };
+
+  init();
+})();

@@ -1,0 +1,285 @@
+{{ define "title" }}Docs{{ end }}
+{{ define "body_class" }}docs{{ end }}
+{{ define "main" }}
+  <h1>API Reference</h1>
+
+  <h2><code>/parseIngredients</code> (POST)</h2>
+
+  <h3>Overview</h3>
+  <p>
+    The <code>/parseIngredients</code> endpoint parses a list of raw ingredient
+    strings into structured JSON.
+  </p>
+
+  <h3>Request</h3>
+  <pre><code class="language-javascript">{
+  "ingredients": [
+    "3 large Granny Smith apples",
+    "2 1/2 tablespoons finely chopped parsley",
+    "½ tsp brown sugar"
+  ]
+}</code></pre>
+
+  <h4>Fields</h4>
+  <ul>
+    <li>
+      <code>ingredients</code>: A list of ingredient strings to parse.
+      <ul>
+        <li>This list must contain between 1 and 100 elements.</li>
+        <li>Each string in the list must be 1,024 characters or fewer.</li>
+        <li>Unicode strings are supported.</li>
+        <li>The strings may be HTML- or URL-encoded.</li>
+        <li>Any HTML tags in the ingredient strings will be ignored.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Response</h3>
+  <pre><code class="language-javascript">{
+  "results": [
+    {
+      "ingredientRaw": "3 large Granny Smith apples",
+      "ingredientParsed": {
+        "quantity": 3.0,
+        "unit": null,
+        "productSizeModifier": "large",
+        "product": "Granny Smith apples",
+        "preparationNotes": null,
+        "usdaInfo": {
+            "category": "Fruits and Fruit Juices",
+            "description": "Apples, raw, granny smith, with skin (Includes foods for USDA's Food Distribution Program)",
+            "fdcId": "168203",
+            "matchMethod": "exact"
+        }
+      },
+      "confidence": 0.9242,
+      "error": null
+    },
+    {
+      "ingredientRaw": "2 1/2 tablespoons finely chopped parsley",
+      "ingredientParsed": {
+        "quantity": 2.5,
+        "unit": "tablespoon",
+        "productSizeModifier": null,
+        "product": "parsley",
+        "preparationNotes": "finely chopped",
+        "usdaInfo": {
+            "category": "Vegetables and Vegetable Products",
+            "description": "Parsley, fresh",
+            "fdcId": "170416",
+            "matchMethod": "exact"
+        }
+      },
+      "confidence": 0.9453,
+      "error": null
+    },
+    {
+      "ingredientRaw": "½ tsp brown sugar",
+      "ingredientParsed": {
+        "quantity": 0.5,
+        "unit": "teaspoon",
+        "productSizeModifier": null,
+        "product": "brown sugar",
+        "preparationNotes": null,
+        "usdaInfo": {
+            "category": "Sweets",
+            "description": "Sugars, brown",
+            "fdcId": "168833",
+            "matchMethod": "exact"
+        }
+      },
+      "confidence": 0.9262,
+      "error": null
+    }
+  ],
+  "requestsRemaining": 27,
+  "error": null
+}</code></pre>
+
+  <h4>Fields</h4>
+  <ul>
+    <li>
+      <code>results</code>: If the request was successful, contains a list of
+      dictionaries with the keys <code>"ingredientRaw"</code>,
+      <code>"ingredientParsed"</code>, and <code>"error"</code>.
+      <ul>
+        <li>
+          <code>ingredientRaw</code>: The original user-supplied ingredient
+          string that corresponds with this parse result.
+        </li>
+        <li>
+          <code>ingredientParsed</code>: A dictionary containing the ingredient
+          as structured data, containing the keys <code>"quantity"</code>,
+          <code>"unit"</code>, <code>"productSizeModifier"</code>,
+          <code>"product"</code>, and <code>"preparationNotes"</code>.
+          <ul>
+            <li>
+              <code>quantity</code>: A number representing the quantity
+              represented in the ingredient string, or <code>null</code> if no
+              quantity was detected in the ingredient string.
+            </li>
+            <li>
+              <code>unit</code>: A string containing the unit of measure in the
+              ingredient string, or <code>null</code> if no unit of measure was
+              found.
+              <ul>
+                <li>
+                  The unit of measure is always in singular form (e.g.,
+                  <code>"teaspoon"</code>, not <code>"teaspoons"</code>).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>productSizeModifier</code>: Adjectives that describe
+              <code>product</code>'s size (e.g., <code>"large"</code>,
+              <code>"small"</code>).
+            </li>
+            <li>
+              <code>product</code>: The product a user buys to obtain this
+              ingredient (e.g., <code>"ground beef"</code>,
+              <code>"brown sugar"</code>).
+            </li>
+            <li>
+              <code>preparationNotes</code>: Instructions to the user about how
+              to prepare this ingredient for a recipe (e.g.,
+              <code>"finely chopped"</code>, <code>"halved"</code>).
+              <ul>
+                <li>
+                  Preparation notes refer to actions that a user takes after
+                  purchasing an ingredient. In some cases, such as
+                  <code>"ground cinnamon"</code> this is ambiguous because a
+                  user can purchase whole cinnamon sticks and grind them (which
+                  would treat grinding as a preparation step) or a user can
+                  purchase the product <code>"ground cinnamon"</code> (which has
+                  no preparation steps).
+                </li>
+                <li>
+                  For ambiguous cases, the parser attempts to choose the product
+                  that is more common. For example, <code>"ground cinnamon"</code>
+                  is treated as a product name because most users purchase
+                  cinnamon pre-ground. In contrast, <code>"diced celery"</code>
+                  is interpreted as <code>product="celery"</code>,
+                  <code>preparationNotes="diced"</code> because users more
+                  commonly dice celery instead of buying pre-diced celery.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <code>usdaInfo</code>: If Zestful can match the ingredient to a
+              food in the USDA database, this contains a dictionary of
+              information about the matching USDA entry.
+              <ul>
+                <li>
+                  The results are based on the
+                  <a
+                    href="https://usda-snapshots.zestfuldata.com/FoodData_Central_csv_2021-04-28/FoodData_Central_csv_2021-04-28.zip"
+                    >2021-04-28 USDA database</a
+                  >.
+                </li>
+                <li>
+                  <code>fdcId</code>: The FDC ID for the food in the USDA
+                  FoodData Central database (e.g.,
+                  <a
+                    href="https://fdc.nal.usda.gov/fdc-app.html#/food-details/168833/nutrients"
+                    >"168833"</a
+                  >)
+                </li>
+                <li>
+                  <code>matchMethod</code>: The method that Zestful used to match
+                  the ingredient to a USDA entry. This can be one of the
+                  following values:
+                  <ul>
+                    <li>
+                      <code>exact</code>: Zestful found an exact match for this
+                      product in the USDA database.
+                    </li>
+                    <li>
+                      <code>closestUnbranded</code>: Zestful could not find an
+                      exact equivalent USDA entry, so it matched the ingredient
+                      to a closely related unbranded USDA product.
+                      <ul>
+                        <li>
+                          e.g., USDA has no exact match for
+                          <code>"light brown sugar"</code>, so Zestful would
+                          match this ingredient to
+                          <a
+                            href="https://fdc.nal.usda.gov/fdc-app.html#/food-details/168833/nutrients"
+                            >"Sugars, brown."</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <code>closestBranded</code>: Zestful could not find an
+                      exact or unbranded equivalent USDA entry, so it matched
+                      the ingredient to a branded USDA product.
+                      <ul>
+                        <li>
+                          e.g., USDA has no exact match for
+                          <code>"apple cider vinegar"</code>, so Zestful would
+                          match this ingredient to
+                          <a
+                            href="https://fdc.nal.usda.gov/fdc-app.html#/food-details/411851/nutrients"
+                            >"BRAGG, ORGANIC APPLE CIDER VINEGAR."</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <code>category</code>: The USDA category for the ingredient
+                  (e.g., <code>"Sweets"</code>).
+                </li>
+                <li>
+                  <code>description</code>: The name of the ingredient in the
+                  USDA database (e.g., <code>"Sugars, brown"</code>).
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <code>confidence</code>: A value between 0.0 and 1.0 representing
+          Zestful's confidence in the result (higher is better).
+        </li>
+        <li>
+          <code>error</code>: An error message that describes what caused
+          <code>ingredientRaw</code> to fail parsing.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <code>requestsRemaining</code>: (sandbox-only) The number of free
+      ingredient conversions remaining in the client's quota.
+      <ul>
+        <li>This field exists in the sandbox (free demo) server only.</li>
+        <li>Paid plans have no hard daily cap on ingredient conversion requests.</li>
+        <li>Free request quota resets every 24 hours.</li>
+      </ul>
+    </li>
+    <li>
+      <code>error</code>: An error message that describes what caused the full
+      parse request to fail.
+    </li>
+  </ul>
+
+  <h2>Known Limitations</h2>
+  <ul>
+    <li>
+      Mixtures of units (e.g., <code>"2 8-oz cans of canned pumpkin"</code>,
+      <code>"2 Tbsp + 1 Tsp of cinnamon"</code>) are not supported.
+    </li>
+    <li>
+      Non-numeric quantities (e.g., <code>"Three tablespoons"</code>) are not
+      supported.
+    </li>
+    <li>
+      Mixtures of ingredients (e.g.,
+      <code>"2 tsp vinegar + 1 tbsp baking powder"</code>) are not supported.
+    </li>
+  </ul>
+
+  <h2>Terms</h2>
+  <p>See <a href="/terms-of-service/">Terms of Service</a>.</p>
+{{ end }}

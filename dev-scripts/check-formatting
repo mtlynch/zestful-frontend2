@@ -9,11 +9,4 @@ set -x
 # Exit on unset variable.
 set -u
 
-./node_modules/.bin/prettier --check \
-  "content/**/*.md" \
-  "themes/**/*.html" \
-  "static/css/**/*.css" \
-  "static/js/**/*.js" \
-  "static/config.json" \
-  "static/site.webmanifest" \
-  "third-party-licenses.txt"
+./node_modules/.bin/prettier --check .

@@ -20,9 +20,7 @@ body_class: "pricing"
           <li class="list-group-item">E-mail support</li>
         </ul>
       </div>
-      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="/demo/">
-        Try for Free
-      </a>
+      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="/demo/">Try for Free</a>
     </div>
   </div>
   <div class="card mb-4 shadow pricing-card pricing-card-primary">
@@ -37,12 +35,7 @@ body_class: "pricing"
           <li class="list-group-item">Priority e-mail and phone support</li>
         </ul>
       </div>
-      <a
-        class="btn btn-lg btn-block btn-primary align-self-end"
-        href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"
-      >
-        Sign Up Now
-      </a>
+      <a class="btn btn-lg btn-block btn-primary align-self-end" href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis">Sign Up Now</a>
     </div>
   </div>
   <div class="card mb-4 shadow pricing-card pricing-card-outline-primary">
@@ -58,9 +51,7 @@ body_class: "pricing"
           <li class="list-group-item">Priority e-mail and phone support</li>
         </ul>
       </div>
-      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="mailto:michael@zestfuldata.com">
-        Contact Us
-      </a>
+      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="mailto:michael@zestfuldata.com">Contact Us</a>
     </div>
   </div>
 </div>

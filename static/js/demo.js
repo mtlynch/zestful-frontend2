@@ -1,9 +1,9 @@
 (() => {
-  const defaultBackendUrl = 'http://localhost:8888';
+  const defaultBackendUrl = "http://localhost:8888";
 
   const loadConfig = async () => {
     try {
-      const response = await fetch('/config.json', { cache: 'no-store' });
+      const response = await fetch("/config.json", { cache: "no-store" });
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }
@@ -15,26 +15,26 @@
   };
 
   const init = async () => {
-    const backendUrl = (await loadConfig()).replace(/\/$/, '');
+    const backendUrl = (await loadConfig()).replace(/\/$/, "");
 
-    const form = document.getElementById('ingredient-form');
-    const input = document.getElementById('ingredient-input');
-    const parseButton = document.getElementById('parse-button');
-    const resetButton = document.getElementById('reset-button');
-    const spinner = document.getElementById('loading-spinner');
-    const exampleSection = document.getElementById('example-section');
-    const exampleButtons = document.querySelectorAll('.example-input');
-    const quotaAlert = document.getElementById('quota-alert');
-    const backendAlert = document.getElementById('backend-alert');
-    const backendError = document.getElementById('backend-error');
-    const parsedCards = document.getElementById('parsed-cards');
-    const usdaCards = document.getElementById('usda-cards');
-    const confidenceCards = document.getElementById('confidence-cards');
-    const requestsCards = document.getElementById('requests-cards');
-    const curlExample = document.getElementById('curl-example');
-    const curlSnippet = document.getElementById('curl-snippet');
-    const pythonExample = document.getElementById('python-example');
-    const pythonSnippet = document.getElementById('python-snippet');
+    const form = document.getElementById("ingredient-form");
+    const input = document.getElementById("ingredient-input");
+    const parseButton = document.getElementById("parse-button");
+    const resetButton = document.getElementById("reset-button");
+    const spinner = document.getElementById("loading-spinner");
+    const exampleSection = document.getElementById("example-section");
+    const exampleButtons = document.querySelectorAll(".example-input");
+    const quotaAlert = document.getElementById("quota-alert");
+    const backendAlert = document.getElementById("backend-alert");
+    const backendError = document.getElementById("backend-error");
+    const parsedCards = document.getElementById("parsed-cards");
+    const usdaCards = document.getElementById("usda-cards");
+    const confidenceCards = document.getElementById("confidence-cards");
+    const requestsCards = document.getElementById("requests-cards");
+    const curlExample = document.getElementById("curl-example");
+    const curlSnippet = document.getElementById("curl-snippet");
+    const pythonExample = document.getElementById("python-example");
+    const pythonSnippet = document.getElementById("python-snippet");
 
     let isWaiting = false;
     let isQuotaExhausted = false;
@@ -60,7 +60,7 @@
       requestsRemaining = null;
       isWaiting = false;
       isQuotaExhausted = false;
-      backendError.textContent = '';
+      backendError.textContent = "";
       setHidden(quotaAlert, true);
       setHidden(backendAlert, true);
       clearCardDeck(parsedCards);
@@ -96,8 +96,8 @@
 
     const formatQuantity = (value) => {
       if (value === null || value === undefined) return null;
-      if (typeof value !== 'number') return String(value);
-      return value.toFixed(3).replace(/\.?0+$/g, '');
+      if (typeof value !== "number") return String(value);
+      return value.toFixed(3).replace(/\.?0+$/g, "");
     };
 
     const formatPercent = (value) => {
@@ -119,25 +119,25 @@
       if (ingredientParsed.quantity !== null) {
         cards.push({
           title: formatQuantity(ingredientParsed.quantity),
-          subtitle: 'quantity',
+          subtitle: "quantity",
         });
       }
       if (ingredientParsed.unit) {
-        cards.push({ title: ingredientParsed.unit, subtitle: 'units' });
+        cards.push({ title: ingredientParsed.unit, subtitle: "units" });
       }
       if (ingredientParsed.productSizeModifier) {
         cards.push({
           title: ingredientParsed.productSizeModifier,
-          subtitle: 'product size modifier',
+          subtitle: "product size modifier",
         });
       }
       if (ingredientParsed.product) {
-        cards.push({ title: ingredientParsed.product, subtitle: 'product' });
+        cards.push({ title: ingredientParsed.product, subtitle: "product" });
       }
       if (ingredientParsed.preparationNotes) {
         cards.push({
           title: ingredientParsed.preparationNotes,
-          subtitle: 'preparation instructions',
+          subtitle: "preparation instructions",
         });
       }
 
@@ -155,26 +155,26 @@
         return;
       }
 
-      const card = document.createElement('div');
-      card.className = 'card shadow-sm';
+      const card = document.createElement("div");
+      card.className = "card shadow-sm";
 
-      const cardBody = document.createElement('div');
-      cardBody.className = 'card-body';
+      const cardBody = document.createElement("div");
+      cardBody.className = "card-body";
 
-      const title = document.createElement('h4');
-      title.className = 'card-title';
+      const title = document.createElement("h4");
+      title.className = "card-title";
       title.textContent = ingredientParsed.usdaInfo.description;
 
-      const subtitle = document.createElement('h6');
-      subtitle.className = 'card-subtitle mb-2 text-muted';
-      subtitle.textContent = 'USDA match';
+      const subtitle = document.createElement("h6");
+      subtitle.className = "card-subtitle mb-2 text-muted";
+      subtitle.textContent = "USDA match";
 
-      const linkWrapper = document.createElement('div');
-      linkWrapper.className = 'usda-link';
+      const linkWrapper = document.createElement("div");
+      linkWrapper.className = "usda-link";
 
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = `https://fdc.nal.usda.gov/fdc-app.html#/food-details/${ingredientParsed.usdaInfo.fdcId}/nutrients`;
-      link.textContent = 'View on USDA FoodCentral';
+      link.textContent = "View on USDA FoodCentral";
 
       linkWrapper.appendChild(link);
       cardBody.appendChild(title);
@@ -192,7 +192,7 @@
         setHidden(confidenceCards, true);
         return;
       }
-      const card = buildCard(formatPercent(confidence), 'confidence');
+      const card = buildCard(formatPercent(confidence), "confidence");
       confidenceCards.appendChild(card);
       setHidden(confidenceCards, false);
     };
@@ -203,7 +203,10 @@
         setHidden(requestsCards, true);
         return;
       }
-      const card = buildCard(String(requestsRemaining), 'free requests remaining');
+      const card = buildCard(
+        String(requestsRemaining),
+        "free requests remaining",
+      );
       requestsCards.appendChild(card);
       setHidden(requestsCards, false);
     };
@@ -225,18 +228,18 @@
     };
 
     const buildCard = (titleText, subtitleText) => {
-      const card = document.createElement('div');
-      card.className = 'card shadow';
+      const card = document.createElement("div");
+      card.className = "card shadow";
 
-      const cardBody = document.createElement('div');
-      cardBody.className = 'card-body text-center';
+      const cardBody = document.createElement("div");
+      cardBody.className = "card-body text-center";
 
-      const title = document.createElement('h4');
-      title.className = 'card-title';
+      const title = document.createElement("h4");
+      title.className = "card-title";
       title.textContent = titleText;
 
-      const subtitle = document.createElement('h6');
-      subtitle.className = 'card-subtitle text-muted';
+      const subtitle = document.createElement("h6");
+      subtitle.className = "card-subtitle text-muted";
       subtitle.textContent = subtitleText;
 
       cardBody.appendChild(title);
@@ -268,8 +271,8 @@
 
       try {
         const response = await fetch(`${backendUrl}/parseIngredients`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ ingredients: [ingredient] }),
         });
 
@@ -279,7 +282,7 @@
 
         const data = await response.json();
         if (data.error) {
-          if (String(data.error).toLowerCase().includes('insufficient quota')) {
+          if (String(data.error).toLowerCase().includes("insufficient quota")) {
             isQuotaExhausted = true;
             setHidden(quotaAlert, false);
           } else {
@@ -290,7 +293,7 @@
 
         const result = data.results && data.results[0];
         if (!result || result.error) {
-          handleError(result && result.error ? result.error : 'Unknown error');
+          handleError(result && result.error ? result.error : "Unknown error");
           return;
         }
 
@@ -298,7 +301,7 @@
         confidence = result.confidence;
         ingredientRawReflected = result.ingredientRaw;
         requestsRemaining =
-          typeof data.requestsRemaining !== 'undefined'
+          typeof data.requestsRemaining !== "undefined"
             ? data.requestsRemaining
             : null;
 
@@ -311,19 +314,19 @@
       }
     };
 
-    form.addEventListener('submit', (event) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
       parseIngredient(input.value.trim());
     });
 
-    form.addEventListener('reset', (event) => {
+    form.addEventListener("reset", (event) => {
       event.preventDefault();
-      input.value = '';
+      input.value = "";
       resetState();
     });
 
     exampleButtons.forEach((button) => {
-      button.addEventListener('click', () => {
+      button.addEventListener("click", () => {
         const value = button.dataset.example || button.textContent.trim();
         input.value = value;
         parseIngredient(value);
@@ -331,7 +334,6 @@
     });
 
     resetState();
-
   };
 
   init();

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 h1,
@@ -13,7 +13,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Jost', serif;
+  font-family: "Jost", serif;
 }
 
 h1 {
@@ -129,11 +129,11 @@ h3 {
 .use-cases .card-body {
   padding: 20px 20px 0px 20px;
   margin-top: 30px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .use-cases h4 {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 .quote {
@@ -174,7 +174,7 @@ blockquote {
 }
 
 .code {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .ingredient-form {
@@ -198,7 +198,7 @@ blockquote {
 }
 
 .example-input {
-  font-family: Consolas, 'Courier New', Courier, monospace;
+  font-family: Consolas, "Courier New", Courier, monospace;
   padding: 25px 20px;
   color: black;
   background: #8e79c4;

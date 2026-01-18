@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -7,11 +7,15 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/third-party/fonts/fonts.css" />
-    <link rel="stylesheet" href="/third-party/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/third-party/bootstrap/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="/css/site.css" />
   </head>
   <body>
     {{ partial "nav.html" . }}
+
 
     <main class="container {{ with .Params.body_class }}{{ . }}{{ end }}">
       {{ block "main" . }}{{ end }}

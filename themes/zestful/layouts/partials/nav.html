@@ -16,10 +16,34 @@
     </button>
     <div class="collapse navbar-collapse" id="nav-collapse">
       <div class="navbar-nav ml-auto">
-        <a class="nav-link standard-link {{ if eq .RelPermalink "/" }}active{{ end }}" href="/">About</a>
-        <a class="nav-link standard-link {{ if eq .RelPermalink "/demo/" }}active{{ end }}" href="/demo/">Demo</a>
-        <a class="nav-link standard-link {{ if eq .RelPermalink "/pricing/" }}active{{ end }}" href="/pricing/">Pricing</a>
-        <a class="nav-link standard-link {{ if eq .RelPermalink "/docs/" }}active{{ end }}" href="/docs/">Docs</a>
+        <a
+          class="nav-link standard-link {{ if eq .RelPermalink "/" }}
+            active
+          {{ end }}"
+          href="/"
+          >About</a
+        >
+        <a
+          class="nav-link standard-link {{ if eq .RelPermalink "/demo/" }}
+            active
+          {{ end }}"
+          href="/demo/"
+          >Demo</a
+        >
+        <a
+          class="nav-link standard-link {{ if eq .RelPermalink "/pricing/" }}
+            active
+          {{ end }}"
+          href="/pricing/"
+          >Pricing</a
+        >
+        <a
+          class="nav-link standard-link {{ if eq .RelPermalink "/docs/" }}
+            active
+          {{ end }}"
+          href="/docs/"
+          >Docs</a
+        >
         <a
           class="nav-link accent-link"
           href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis"

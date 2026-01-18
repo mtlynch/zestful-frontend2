@@ -6,7 +6,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   description = "A machine-learning-powered ingredient parser API. Parse your recipe ingredients into clean, structured JSON. Built to power the best food apps online."
-  og_image = "/images/ingredient-translation.png"
+  og_image = "/images/ingredient-translation.webp"
   og_image_width = "635"
   og_image_height = "558"
   og_locale = "en_US"

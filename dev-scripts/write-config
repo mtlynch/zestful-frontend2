@@ -9,7 +9,10 @@ set -x
 # Exit on unset variable.
 set -u
 
-BACKEND_URL="${BACKEND_URL:-http://localhost:8888}"
+if [[ -z "${BACKEND_URL:-}" ]]; then
+  echo "BACKEND_URL must be set"
+  exit 1
+fi
 
 cat > static/config.json <<CONFIG
 {

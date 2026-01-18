@@ -1,6 +1,4 @@
 (() => {
-  const defaultBackendUrl = "http://localhost:8888";
-
   const loadConfig = async () => {
     try {
       const response = await fetch("/config.json", { cache: "no-store" });
@@ -8,14 +6,29 @@
         throw new Error(`HTTP ${response.status}`);
       }
       const data = await response.json();
-      return data && data.BACKEND_URL ? data.BACKEND_URL : defaultBackendUrl;
+      if (!data || !data.BACKEND_URL) {
+        throw new Error("BACKEND_URL missing in config.json");
+      }
+      return data.BACKEND_URL;
     } catch (error) {
-      return defaultBackendUrl;
+      throw error;
     }
   };
 
   const init = async () => {
-    const backendUrl = (await loadConfig()).replace(/\/$/, "");
+    let backendUrl;
+    try {
+      backendUrl = (await loadConfig()).replace(/\/$/, "");
+    } catch (error) {
+      const banner = document.createElement("div");
+      banner.className = "alert alert-warning";
+      banner.setAttribute("role", "alert");
+      banner.textContent = `Failed to load config.json: ${
+        error.message || error
+      }`;
+      document.body.insertBefore(banner, document.body.firstChild);
+      return;
+    }
 
     const form = document.getElementById("ingredient-form");
     const input = document.getElementById("ingredient-input");

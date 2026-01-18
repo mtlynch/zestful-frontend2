@@ -1,7 +1,6 @@
 baseURL = "https://zestfuldata.com/"
 languageCode = "en-us"
 title = "Zestful"
-theme = "zestful"
 disableKinds = ["taxonomy", "term"]
 
 [params]

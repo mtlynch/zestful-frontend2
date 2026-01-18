@@ -1,9 +1,9 @@
-<meta property="og:type" content="website" /> {{ with .Site.Params.og_locale }}
-  <meta property="og:locale" content="{{ . }}" />
-{{ end }}
-{{ with .Site.Params.og_site_name }}
-  <meta property="og:site_name" content="{{ . }}" />
-{{ end }}
+<meta property="og:type" content="website" />
+<meta
+  property="og:locale"
+  content="{{ replace .Site.Language.Lang "-" "_" }}"
+/>
+<meta property="og:site_name" content="{{ .Site.Title }}" />
 {{ $description := .Description | default .Site.Params.description }}
 {{ with $description }}
   <meta property="og:description" content="{{ . }}" />

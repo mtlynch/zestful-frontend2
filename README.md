@@ -1,8 +1,10 @@
 # zestful-frontend2
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mtlynch/zestful-frontend2/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mtlynch/zestful-frontend2/tree/master)
+
 ## Overview
 
-This is the Zestful frontend implemented as a static Hugo site (vanilla HTML/CSS/JS).
+Zestful homepage and demo.
 
 ## Dev Setup
 

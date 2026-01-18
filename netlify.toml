@@ -1,11 +1,3 @@
-[build]
-  command = "./dev-scripts/build && ./dev-scripts/write-config"
-  publish = "public"
-
-[build.environment]
-  BACKEND_URL = "http://localhost:8888"
-  HUGO_VERSION = "0.147.5"
-
 [[redirects]]
   from = "/"
   to = "/index.html"

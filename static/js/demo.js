@@ -1,18 +1,14 @@
 (() => {
   const loadConfig = async () => {
-    try {
-      const response = await fetch("/config.json", { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-      const data = await response.json();
-      if (!data || !data.BACKEND_URL) {
-        throw new Error("BACKEND_URL missing in config.json");
-      }
-      return data.BACKEND_URL;
-    } catch (error) {
-      throw error;
+    const response = await fetch("/config.json", { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
     }
+    const data = await response.json();
+    if (!data || !data.BACKEND_URL) {
+      throw new Error("BACKEND_URL missing in config.json");
+    }
+    return data.BACKEND_URL;
   };
 
   const init = async () => {

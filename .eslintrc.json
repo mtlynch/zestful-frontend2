@@ -4,7 +4,11 @@
     "node": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "extends": ["eslint:recommended"],
   "rules": {
     "no-console": "off"
   }

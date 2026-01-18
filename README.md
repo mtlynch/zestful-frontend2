@@ -15,7 +15,7 @@ BACKEND_URL='http://localhost:8888' ./dev-scripts/write-config
 ./dev-scripts/serve
 ```
 
-Open http://localhost:1313/
+Open http://localhost:2323/
 
 ## Build
 
@@ -27,10 +27,6 @@ Open http://localhost:1313/
 
 Netlify publishes `public/`. Set `BACKEND_URL` in Netlify, and the build runs
 `./dev-scripts/build` and `./dev-scripts/write-config` to generate `/config.json`.
-
-## Third-Party Notices
-
-See `third-party-licenses.txt` for required attributions and license texts.
 
 ## Live Site
 

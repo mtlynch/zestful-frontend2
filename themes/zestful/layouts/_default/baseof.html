@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{ partial "seo/description.html" . }}
     {{ partial "seo/opengraph.html" . }}
-    <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ with .Site.Params.title_suffix }} | {{ . }}{{ end }}{{ end }}{{ end }}</title>
+    <title>
+      {{ block "title" . }}
+        {{ if .IsHome }}
+          {{ .Site.Title }}
+        {{ else }}
+          {{ .Title }}{{ with .Site.Params.title_suffix }}| {{ . }}{{ end }}
+        {{ end }}
+      {{ end }}
+    </title>
     {{ partial "seo/canonical.html" . }}
     {{ partial "seo/icons.html" . }}
     <link rel="stylesheet" href="/third-party/fonts/fonts.css" />

@@ -33,11 +33,8 @@ jobs:
       - run:
           name: Write runtime config
           command: |
-            if [[ -z "${BACKEND_URL:-}" ]]; then
-              echo "BACKEND_URL must be set for the CI build."
-              exit 1
-            fi
-            ./dev-scripts/write-config
+            BACKEND_URL='https://sandbox.zestfuldata.com/' \
+              ./dev-scripts/write-config
       - persist_to_workspace:
           root: ./
           paths:

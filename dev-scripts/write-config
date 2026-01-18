@@ -9,8 +9,18 @@ set -x
 # Exit on unset variable.
 set -u
 
+CONFIG_PATH="static/config.json"
+PUBLIC_CONFIG_PATH="public/config.json"
+readonly CONFIG_PATH
+readonly PUBLIC_CONFIG_PATH
+
 if [[ -z "${BACKEND_URL:-}" ]]; then
   echo "BACKEND_URL must be set"
+  exit 1
+fi
+
+if [[ ! -d "public" ]]; then
+  echo "public directory is missing"
   exit 1
 fi
 
@@ -20,6 +30,4 @@ cat > static/config.json <<CONFIG
 }
 CONFIG
 
-if [[ -d "public" ]]; then
-  cp static/config.json public/config.json
-fi
+cp "${CONFIG_PATH}" "${PUBLIC_CONFIG_PATH}"

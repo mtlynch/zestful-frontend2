@@ -7,7 +7,8 @@
     {{ partial "seo/opengraph.html" . }}
     <title>
       {{ block "title" . }}
-        {{ .Title }} | {{ .Site.Title }}
+        {{ .Title }} |
+        {{ .Site.Title }}
       {{ end }}
     </title>
     {{ partial "seo/canonical.html" . }}

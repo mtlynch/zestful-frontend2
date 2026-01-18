@@ -7,7 +7,7 @@ body_class: "home"
 
 <div class="flex-container">
   <p>Zestful's ingredient parser API turns plain recipe strings into beautiful, structured JSON data.</p>
-  <img class="img-fluid img-ingredient-translation" src="/images/ingredient-translation.png" alt="Translating an ingredient into structured JSON" />
+  <img class="img-fluid img-ingredient-translation" src="/images/ingredient-translation.webp" alt="Translating an ingredient into structured JSON" />
 </div>
 
 ## Helping recipe app developers
@@ -18,19 +18,19 @@ Zestful makes recipe apps smarter about managing ingredients. Zestful transforms
 
 <div class="card-deck use-cases">
   <div class="card shadow-sm text-center">
-    <img class="card-img-top" src="/images/search-icon.gif" alt="Search icon" />
+    <img class="card-img-top" src="/images/search-icon.webp" alt="Search icon" />
     <div class="card-body">
       <h4 class="card-title">Make your recipes searchable</h4>
     </div>
   </div>
   <div class="card shadow-sm text-center">
-    <img class="card-img-top" src="/images/shopping-cart-icon.gif" alt="Shopping cart icon" />
+    <img class="card-img-top" src="/images/shopping-cart-icon.webp" alt="Shopping cart icon" />
     <div class="card-body">
       <h4 class="card-title">Build shopping lists for your customers</h4>
     </div>
   </div>
   <div class="card shadow-sm text-center">
-    <img class="card-img-top" src="/images/database-icon.gif" alt="Database icon" />
+    <img class="card-img-top" src="/images/database-icon.webp" alt="Database icon" />
     <div class="card-body">
       <h4 class="card-title">Create an ingredient database</h4>
     </div>

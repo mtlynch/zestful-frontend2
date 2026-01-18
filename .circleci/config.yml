@@ -1,42 +1,87 @@
 version: 2.1
-jobs:
-  build:
+executors:
+  node:
     docker:
-      - image: circleci/node:14.17.0-stretch
+      - image: cimg/node:24.4.1
+  hugo:
+    docker:
+      - image: hugomods/hugo:0.147.5
+jobs:
+  lint:
+    executor: node
     steps:
       - checkout
       - run:
           name: Download npm packages
           command: npm install
       - run:
-          name: Check JavaScript formatting
-          command: npm run check-format
+          name: Check formatting
+          command: ./dev-scripts/check-formatting
       - run:
           name: Run linter
-          command: npm run lint
+          command: ./dev-scripts/lint
+  build:
+    executor: hugo
+    steps:
+      - checkout
       - run:
-          name: Build static pages
-          command: npm run generate
+          name: Install bash
+          command: apk add --no-cache bash
+      - run:
+          name: Build site
+          command: ./dev-scripts/build
+      - run:
+          name: Write runtime config
+          command: |
+            BACKEND_URL='https://sandbox.zestfuldata.com/' \
+              ./dev-scripts/write-config
       - persist_to_workspace:
           root: ./
           paths:
-            - ./dist
-            - firebase.json
-            - .firebaserc
-  deploy:
-    docker:
-      - image: mtlynch/firebase-tools:8.1.1-node-14.0.0
+            - public
+            - netlify.toml
+  publish_draft:
+    executor: node
+    resource_class: small
     steps:
       - attach_workspace:
           at: ./
       - run:
-          name: Deploy to firebase
-          command: firebase deploy --token="${FIREBASE_DEPLOY_TOKEN}"
+          name: Install netlify CLI
+          command: npm install netlify-cli@23.7.3 --save-dev
+      - run:
+          name: Print netlify version
+          command: ./node_modules/.bin/netlify version
+      - run:
+          name: Deploy a live draft
+          command: ./node_modules/.bin/netlify deploy --dir=public --site="${NETLIFY_SITE_ID}"
+  deploy:
+    executor: node
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Install netlify CLI
+          command: npm install netlify-cli@23.7.3 --save-dev
+      - run:
+          name: Print netlify version
+          command: ./node_modules/.bin/netlify version
+      - run:
+          name: Deploy to production
+          command: ./node_modules/.bin/netlify deploy --dir=public --site="${NETLIFY_SITE_ID}" --prod
 workflows:
   version: 2
-  test-deploy:
+  test_deploy:
     jobs:
+      - lint
       - build
+      - publish_draft:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: master
       - deploy:
           requires:
             - build

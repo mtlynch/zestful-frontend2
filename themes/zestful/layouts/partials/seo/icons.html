@@ -1,0 +1,19 @@
+<link rel="icon" href="/favicon.ico" /> {{ with .Site.Params.favicon_16 }}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.favicon_32 }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.apple_touch_icon }}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ . }}" />
+{{ end }}
+{{ with .Site.Params.mask_icon }}
+  <link
+    rel="mask-icon"
+    color="{{ $.Site.Params.mask_icon_color }}"
+    href="{{ . }}"
+  />
+{{ end }}
+{{ with .Site.Params.manifest }}
+  <link rel="manifest" href="{{ . }}" />
+{{ end }}

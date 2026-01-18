@@ -1,0 +1,4 @@
+{{ $description := .Description | default .Site.Params.description }}
+{{ with $description }}
+  <meta name="description" content="{{ . }}" />
+{{ end }}

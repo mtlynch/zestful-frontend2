@@ -1,38 +1,9 @@
 {
   "name": "zestful-frontend2",
-  "dependencies": {
-    "@nuxtjs/axios": "^5.13.5",
-    "babel-runtime": "^6.26.0",
-    "nuxt": "^2.15.6",
-    "prismjs": "^1.27.0",
-    "vue-markdown": "^2.2.4",
-    "vue2-filters": "^0.12.0"
-  },
-  "scripts": {
-    "serve": "nuxt --hostname 0.0.0.0 --port 3800",
-    "generate": "nuxt generate",
-    "check-format": "prettier --check ./**/*.js ./**/*.vue ./**/*.json",
-    "format": "prettier --write ./**/*.js ./**/*.vue ./**/*.json",
-    "fix-lint": "eslint --fix ./**/*.js ./**/*.vue",
-    "lint": "eslint --ext .js,.vue .",
-    "post-update": "yarn upgrade --latest"
-  },
+  "private": true,
   "devDependencies": {
-    "@nuxt/typescript-build": "^2.1.0",
-    "@nuxt/typescript-runtime": "^2.1.0",
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/robots": "^2.5.0",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "@typescript-eslint/parser": "^4.25.0",
-    "babel-eslint": "10.1.0",
-    "bootstrap-vue": "^2.21.2",
     "eslint": "7.27.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-loader": "4.0.2",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-vue": "7.10.0",
-    "prettier": "2.3.0"
+    "prettier": "3.5.3",
+    "prettier-plugin-go-template": "0.0.15"
   }
 }

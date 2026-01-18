@@ -1,0 +1,57 @@
+---
+title: "Pricing"
+type: "pricing"
+url: "/pricing/"
+body_class: "pricing"
+---
+
+# Pricing
+
+<div class="card-deck">
+  <div class="card mb-4 shadow pricing-card pricing-card-outline-primary">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Trial</h4>
+    </div>
+    <div class="card-body d-flex flex-column inner-body">
+      <h2 class="card-title">$0</h2>
+      <div class="card-text">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">30 ingredient parses per day</li>
+          <li class="list-group-item">E-mail support</li>
+        </ul>
+      </div>
+      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="/demo/">Try for Free</a>
+    </div>
+  </div>
+  <div class="card mb-4 shadow pricing-card pricing-card-primary">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Professional</h4>
+    </div>
+    <div class="card-body d-flex flex-column inner-body">
+      <h2 class="card-title">$0.02 / ingredient</h2>
+      <div class="card-text">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Managed hosting</li>
+          <li class="list-group-item">Priority e-mail and phone support</li>
+        </ul>
+      </div>
+      <a class="btn btn-lg btn-block btn-primary align-self-end" href="https://rapidapi.com/zestfuldata/api/recipe-and-ingredient-analysis">Sign Up Now</a>
+    </div>
+  </div>
+  <div class="card mb-4 shadow pricing-card pricing-card-outline-primary">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Enterprise</h4>
+    </div>
+    <div class="card-body d-flex flex-column inner-body">
+      <h2 class="card-title">Flat Fee</h2>
+      <div class="card-text">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Private managed server</li>
+          <li class="list-group-item">Unlimited ingredient parses</li>
+          <li class="list-group-item">Priority e-mail and phone support</li>
+        </ul>
+      </div>
+      <a class="btn btn-lg btn-block btn-outline-primary align-self-end" href="mailto:michael@zestfuldata.com">Contact Us</a>
+    </div>
+  </div>
+</div>

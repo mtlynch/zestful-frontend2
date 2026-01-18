@@ -1,0 +1,26 @@
+baseURL = "https://zestfuldata.com/"
+languageCode = "en-us"
+title = "Zestful Data"
+theme = "zestful"
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "A machine-learning-powered ingredient parser API. Parse your recipe ingredients into clean, structured JSON. Built to power the best food apps online."
+  og_image = "/images/ingredient-translation.png"
+  og_image_width = "635"
+  og_image_height = "558"
+  og_locale = "en_US"
+  og_site_name = "Zestful"
+  title_suffix = "Zestful"
+  favicon_16 = "/images/favicons/favicon-16x16.png"
+  favicon_32 = "/images/favicons/favicon-32x32.png"
+  apple_touch_icon = "/images/favicons/apple-touch-icon.png"
+  mask_icon = "/images/favicons/safari-pinned-tab.svg"
+  mask_icon_color = "#5bbad5"
+  manifest = "/site.webmanifest"
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

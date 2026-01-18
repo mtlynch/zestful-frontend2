@@ -1,5 +1,8 @@
 .DS_Store
 node_modules
+/public
+/resources
+.hugo_build.lock
 /dist
 .nuxt
 .firebase
@@ -23,3 +26,6 @@ firebase-debug.log*
 *.njsproj
 *.sln
 *.sw*
+
+
+/.direnv

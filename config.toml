@@ -1,6 +1,6 @@
 baseURL = "https://zestfuldata.com/"
 languageCode = "en-us"
-title = "Zestful Data"
+title = "Zestful"
 theme = "zestful"
 disableKinds = ["taxonomy", "term"]
 
@@ -9,9 +9,6 @@ disableKinds = ["taxonomy", "term"]
   og_image = "/images/ingredient-translation.webp"
   og_image_width = "635"
   og_image_height = "558"
-  og_locale = "en_US"
-  og_site_name = "Zestful"
-  title_suffix = "Zestful"
   favicon_16 = "/images/favicons/favicon-16x16.png"
   favicon_32 = "/images/favicons/favicon-32x32.png"
   apple_touch_icon = "/images/favicons/apple-touch-icon.png"

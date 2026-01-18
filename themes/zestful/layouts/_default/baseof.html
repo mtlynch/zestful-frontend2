@@ -7,11 +7,7 @@
     {{ partial "seo/opengraph.html" . }}
     <title>
       {{ block "title" . }}
-        {{ if .IsHome }}
-          {{ .Site.Title }}
-        {{ else }}
-          {{ .Title }}{{ with .Site.Params.title_suffix }}| {{ . }}{{ end }}
-        {{ end }}
+        {{ .Title }} | {{ .Site.Title }}
       {{ end }}
     </title>
     {{ partial "seo/canonical.html" . }}
